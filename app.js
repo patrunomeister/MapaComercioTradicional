@@ -241,6 +241,16 @@ function initMap() {
         minZoom: mapConfig.minZoom,
         maxZoom: mapConfig.maxZoom
     });
+
+    // Debug: ascolta l'evento di load per verificare lo stato della mappa
+    map.on('load', () => {
+        console.info('map loaded event');
+        try { map.resize(); } catch (e) { console.warn('resize on load failed', e); }
+        // Log delle dimensioni del container e del canvas
+        logMapSizes('on load');
+        // Se canvas ha dimensioni zero, prova a forzarne il resize più volte
+        ensureMapRendered(6, 250);
+    });
     
     // Aggiungi i controlli di navigazione
     map.addControl(new mapboxgl.NavigationControl(), 'top-right');
@@ -267,6 +277,93 @@ function initMap() {
             duration: 1000
         });
     });
+
+    // Esponi la mappa globalmente per eventuali utility e per trigger di resize
+    window.map = map;
+
+    // Ridimensiona la mappa poco dopo l'inizializzazione in caso il container fosse nascosto al momento del load
+    try {
+        setTimeout(() => { if (map && map.resize) map.resize(); }, 100);
+        setTimeout(() => { if (map && map.resize) map.resize(); }, 500);
+    } catch (e) {
+        console.warn('map resize failed on init', e);
+    }
+
+    // Ridimensiona la mappa al cambiamento di dimensione finestra (utile durante rotazione dispositivo)
+    window.addEventListener('resize', () => {
+        try { if (window.map && window.map.resize) window.map.resize(); } catch (e) { /* non critico */ }
+    });
+
+    // Assicuriamoci che non ci sia una classe residua che nasconde la sidebar all'avvio
+    document.body.classList.remove('sidebar-collapsed');
+
+    // Helper: log dimensioni utili per debug
+    function logMapSizes(prefix) {
+        try {
+            const container = document.getElementById('map');
+            const canvas = container ? container.querySelector('canvas') : null;
+            console.info(prefix, 'container', container ? {w: container.clientWidth, h: container.clientHeight} : null,
+                'canvas', canvas ? {w: canvas.width, h: canvas.height, styleW: canvas.style.width, styleH: canvas.style.height} : null,
+                'body classes', document.body.className);
+        } catch (e) { console.warn('logMapSizes failed', e); }
+    }
+
+    // Helper: tenta ridimensionamenti ripetuti finché la canvas non abbia dimensioni > 0 o scada il numero di tentativi
+    function ensureMapRendered(attempts, delayMs) {
+        let tries = 0;
+        const container = document.getElementById('map');
+        const tick = () => {
+            tries++;
+            try {
+                if (window.map && window.map.resize) window.map.resize();
+            } catch (e) {}
+            const canvas = container ? container.querySelector('canvas') : null;
+            const cw = canvas ? canvas.width : 0;
+            const ch = canvas ? canvas.height : 0;
+            logMapSizes('ensureMapRendered try ' + tries);
+            if ((cw > 0 && ch > 0) || tries >= attempts) {
+                if (cw > 0 && ch > 0) console.info('map canvas ready', {cw, ch});
+                else console.warn('map canvas still zero after attempts', {tries, cw, ch});
+                return;
+            }
+            setTimeout(tick, delayMs);
+        };
+        tick();
+    }
+
+    // Mobile: toggle per mostrare/nascondere la sidebar
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const body = document.body;
+    if (sidebarToggle) {
+        // Aggiorna visibilità in base alla larghezza
+        const mq = window.matchMedia('(max-width: 768px)');
+        function updateToggleVisibility() {
+            if (mq.matches) {
+                sidebarToggle.style.display = 'inline-block';
+            } else {
+                sidebarToggle.style.display = 'none';
+                // assicurati che la sidebar sia visibile su desktop
+                body.classList.remove('sidebar-collapsed');
+                // reset icon
+                const ico = sidebarToggle.querySelector('i');
+                if (ico) ico.className = 'fas fa-bars';
+                // ridimensiona mappa
+                if (map && map.resize) map.resize();
+            }
+        }
+        updateToggleVisibility();
+        mq.addListener(updateToggleVisibility);
+
+        sidebarToggle.addEventListener('click', () => {
+            const collapsed = body.classList.toggle('sidebar-collapsed');
+            const ico = sidebarToggle.querySelector('i');
+            if (ico) ico.className = collapsed ? 'fas fa-times' : 'fas fa-bars';
+            // aspetta la transizione CSS e poi ridimensiona la mappa
+            setTimeout(() => {
+                if (map && map.resize) map.resize();
+            }, 250);
+        });
+    }
     
     // --- LOGICA TAB ---
     document.querySelectorAll('.tab-button').forEach(button => {
@@ -435,6 +532,16 @@ function handleListItemClick(locationId) {
 
     // 3. Apri il popup
     openPopup(location);
+    // On mobile, switch to the description tab but keep the sidebar visible so the list/tabs remain accessible.
+    try {
+        if (window.innerWidth <= 768) {
+            activateTab('description');
+            // give map a moment to animate and then ensure correct sizing
+            if (map && map.resize) setTimeout(() => map.resize(), 250);
+        }
+    } catch (e) {
+        console.warn(e);
+    }
 }
 
 /**
