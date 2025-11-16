@@ -75,7 +75,7 @@ const locations = [
         },
         icon: "🌿",
         images: [
-            "",
+            "./images/04_Don_Bergino_01.jpg",
             ""
                    ] // Nessuna immagine aggiuntiva per questo esempio
     }
