@@ -59,6 +59,25 @@ const locations = [
             "./images/03_Discos_Medicinales_04_2018.jpg",
             "./images/03_Discos_Medicinales_05_2018.jpg"
                    ] // Nessuna immagine aggiuntiva per questo esempio
+    },
+    {
+        id: 3,
+        title: "Don Bergino",
+        type: "Venta a la porta",
+        description: "Frutas y hortalizas de su huerta",
+        coordinates: [-0.037221, 39.987095],
+        details: {
+            address: "",
+            category: "",
+            status: "",
+            contact: "",
+            notes: ""
+        },
+        icon: "🌿",
+        images: [
+            "",
+            ""
+                   ] // Nessuna immagine aggiuntiva per questo esempio
     }
 ];
 
