@@ -61,7 +61,7 @@ const locations = [
                    ] // Nessuna immagine aggiuntiva per questo esempio
     },
     {
-        id: 3,
+        id: 4,
         title: "Don Bergino",
         type: "Venta a la porta",
         description: "Frutas y hortalizas de su huerta",
