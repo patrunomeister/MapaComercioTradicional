@@ -522,10 +522,12 @@ function updateImagesTab() {
 
     let galleryHTML = '';
 
-    // Inserisci prima i video (se presenti)
+    // Inserisci prima i video (se presenti). Aggiungo una piccola etichetta e faccio sì che i video
+    // occupino tutta la larghezza della tab; le immagini saranno posizionate sotto.
     videos.forEach(src => {
         galleryHTML += `
             <div class="media-item video-item">
+                <div class="media-label">Video</div>
                 <div class="video-wrap">
                     <iframe src="${src}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>

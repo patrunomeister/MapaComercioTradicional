@@ -423,13 +423,13 @@ body {
 .image-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 10px;
-    margin-top: 15px;
+    gap: 14px; /* aumentato gap per maggior respiro */
+    margin-top: 18px;
 }
 
 .image-gallery img {
     width: 100%;
-    height: 100px;
+    height: 120px; /* immagini leggermente più alte */
     object-fit: cover;
     border-radius: 4px;
     cursor: pointer;
@@ -471,6 +471,31 @@ body {
     width: 100%;
     height: 100%;
     border: 0;
+}
+
+/* Make video items span the full width of the gallery grid so videos appear above images */
+.image-gallery .video-item {
+    grid-column: 1 / -1;
+    padding: 0 8px 12px 8px; /* padding laterale e spazio sotto il video */
+    margin-bottom: 8px; /* separazione aggiuntiva tra video e immagini */
+}
+
+.media-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--dark-grey);
+    padding: 10px 14px; /* padding leggermente maggiore */
+    background: #fafafa;
+    border-bottom: 1px solid #eee;
+}
+
+.video-item .media-label {
+    background: transparent;
+    padding: 6px 0 8px 0;
+}
+
+.image-gallery .image-item {
+    padding: 6px; /* padding intorno a ciascuna immagine */
 }
 
 /* Stili per la tab Descrizione */
