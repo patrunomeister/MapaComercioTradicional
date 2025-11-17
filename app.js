@@ -40,16 +40,29 @@ const locations = [
     },
     {
         id: 3,
-        title: "Discos Medicinales",
+        title: "Discos Medicinales, Música",
         type: "Tiendas históricas",
-        description: "José Luis Roig, gestor de Discos Medicinales, en marcha desde 1983 hasta el verano 2019.<br><br><img src=\"https://lh3.googleusercontent.com/umsh/AN6v0v671dOPYYvuUF1vqNn18177OgDsW4x5TRg_mML7oDFYOoP6f38o0SR17mPOsk56zRdqfOcXQvdaRF0sL5ha7bRvN0CFMLAEtVLa6TeuaVz7DxQJJtMv_cDJ3hfDxmz9qw0IeQqSM1unS-We4tM3Qd7541FJtrplyT2pQmVdhZ9yRxNOju4bEv5WLEnjM9wmoT90ekCJWN28Ne2sdlnLHHElMOmMjIG70fHISurjBf9k_ZbTGtK-Rb0p0UrXXVGh81cxsp0p4eLSGkKyzUB319q0VVWKqRdl8tAHTQWKs6KCiv4I5H8iDDwizbRJeQgzAPUSpOniX88Wa4GrQJBITaKqY-hV99Ep_1v4Em40EHnxpdTQecaDDRoPKbgJJayVmoV6mSs80yOGH2Ca9p1OzUnImBKhlNb5A6f8xrlD6Axs2t7tX4JZj4A5mOs1pLxK5L0BqKoripJhi3PLhrteU6-FCPmISrDYBCnwNB6QDCA5rcT27vQ5gJHpIE61UiYyjbZ7tAWXQA_wPQlWU_ISMMaGhpq7l9wJazOCNoleJ0FAYzayd8KzODFCwX0pLTzKhDHo_zvyZvVsMxSGRjJqMwNBrxrgvsYwSh6q2GdC037wbgmOEwoofHJJQSlztgVgZUh1c3szNvtfQd2abzM9M6iAUcE9-g5usM-nQz0jDbWBDMpPE2HG7XKH6MwRYhU7b6_wnyxlVoNsz8ahwed_O6tZohIUJg\" height=\"200\" width=\"auto\" /><br>",
+        description: "<b>Fundador:</b> José Luis Roig<br> \
+        <b>Tipo de comercio:</b> Tienda especializada en música (vinilos, CDs y material de coleccionismo) \
+        <b>Descripción:</b><br> \
+        Fundada en 1983, Discos Medicinales se convirtió en un referente cultural y un verdadero santuario para \
+        los melómanos de Castellón. Su catálogo, amplio y cuidadosamente seleccionado, la situó entre las tiendas \
+        más apreciadas por coleccionistas y aficionados a la música.<br><br>\
+        <b>Importancia histórica:</b> <br> \
+        Durante más de tres décadas, la tienda fue un punto de encuentro para la comunidad musical local, \
+        contribuyendo de forma decisiva a la memoria cultural y social de la ciudad.<br>\
+        Bajo la dirección de José Luis Roig, el establecimiento defendió un modelo de comercio basado en \
+        la calidad, el conocimiento especializado y la atención personalizada, resistiendo a la competencia de \
+        las grandes cadenas y al auge del consumo digital.<br><br>\
+        <b>Cierre:</b><br> \
+        La tienda cerró su sede histórica en el verano de 2019",
         coordinates: [-0.038213, 39.985078],
         details: {
-            address: "",
-            category: "",
+            address: "<b>C/Pascual Tirado, 1</b> 1983–2019",
+            category: "Tiendas históricas",
             status: "",
             contact: "",
-            notes: ""
+            notes: "[1] <a href=\"https://castellonplaza.com/castellonplaza/discos-medicinales-cierra-su-emblematica-tienda-para-trasladarse-a-la-plaza-clave-en-septiembre\">Discos Medicinales cierra su emblemática tienda para trasladarse a la plaza Clavé en septiembre</a>"
         },
         icon: "❤️",
         images: [
