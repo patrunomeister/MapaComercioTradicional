@@ -15,6 +15,7 @@ const locations = [
             notes: "[1] <a href=\"https://www.elperiodicomediterraneo.com/castello/2021/01/11/castello-llora-wamba-fotografo-deja-40624182.html\">  Castelló llora a \"Wamba\", un fotógrafo que deja un legado de valor histórico</a><br><br>[2] <a href=\"https://www.elperiodicomediterraneo.com/castello/2018/06/02/3a-generacion-wamba-jorge-deja-41318843.html\">La 3ª generación de los Wamba, Jorge, deja la historia fotográfica</a>" },
         icon: "❤️",
         images: [
+            "https://www.youtube.com/watch?v=bhHnQH2JHow",
             "./images/01_Wamba_01_2019.jpg",
             "./images/01_Wamba_02_SD.jpg"
         ]
@@ -500,12 +501,43 @@ function updateImagesTab() {
         `;
         return;
     }
-    
-    let galleryHTML = '';
-    currentLocation.images.forEach(imageURL => {
-        galleryHTML += `<img src="${imageURL}" alt="Immagine di ${currentLocation.title}" onclick="window.open('${imageURL}', '_blank')">`;
+    // Se tra le images c'è un link YouTube, embeddalo prima delle immagini
+    const ytIdFromUrl = (url) => {
+        if (!url) return null;
+        const m = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/i);
+        return m ? m[1] : null;
+    };
+
+    const videos = [];
+    const images = [];
+
+    currentLocation.images.forEach(url => {
+        const id = ytIdFromUrl(url);
+        if (id) {
+            videos.push(`https://www.youtube.com/embed/${id}`);
+        } else {
+            images.push(url);
+        }
     });
-    
+
+    let galleryHTML = '';
+
+    // Inserisci prima i video (se presenti)
+    videos.forEach(src => {
+        galleryHTML += `
+            <div class="media-item video-item">
+                <div class="video-wrap">
+                    <iframe src="${src}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        `;
+    });
+
+    // Poi le immagini
+    images.forEach(img => {
+        galleryHTML += `<div class="media-item image-item"><img src="${img}" alt="Immagine di ${currentLocation.title}" onclick="window.open('${img}', '_blank')"></div>`;
+    });
+
     imagesContent.innerHTML = `
         <div class="image-gallery">
             ${galleryHTML}
