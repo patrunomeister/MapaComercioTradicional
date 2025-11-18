@@ -4,7 +4,7 @@ const locations = [
     {
         id: 1,
         title: "Wamba Fotografía",
-        type: "Castellón, ca. 1950–2021",
+        type: "Castellón, ca. 1936–2021",
         description: "<b>Gestor:</b>  Vicente Traver Ardiez (hasta 2021)<br><b>Fundador:</b> Vicente Traver Sanz<br><b>Tipo de comercio:</b> fotógrafo<br><br><b>Descripción:</b><br>Atelier emblemático de Castellón durante más de seis décadas. Fundado por Vicente Traver Sanz y continuado por su hijo Vicente Traver Ardiez, Wamba documentó la vida pública y cotidiana de la ciudad: festividades, inauguraciones, manifestaciones, escenas urbanas y detalles domésticos, capturando la evolución social y arquitectónica de Castellón. En la descripción de Facebook aparece \"Local comercial dedicado al Arte Fotográfico, fundada en Castellón en 1936 bajo el nombre: Wamba\"<br><br><b>Valor histórico y patrimonial:</b><br>El archivo fotográfico Wamba constituye un testimonio visual único del Castellón del siglo XX y principios del XXI. Las imágenes reflejan tanto la vida pública como la intimidad de la ciudad, siendo un recurso indispensable para preservar su memoria cultural y social. La continuidad de la saga familiar permitió mantener vivo este legado a lo largo de varias generaciones<br><br><b>Cierre:</b><br>El estudio permaneció activo hasta la muerte de Vicente Traver Ardiez en 2021",
         coordinates: [-0.037432, 39.984495],
         details: {
