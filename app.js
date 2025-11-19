@@ -4,7 +4,7 @@ const locations = [
     {
         id: 1,
         title: "Wamba Fotografía",
-        type: "Castellón, ca. 1936–2021",
+        type: "Castellón, ca. 1950–2021",
         description: "<b>Gestor:</b>  Vicente Traver Ardiez (hasta 2021)<br><b>Fundador:</b> Vicente Traver Sanz<br><b>Tipo de comercio:</b> fotógrafo<br><br><b>Descripción:</b><br>Atelier emblemático de Castellón durante más de seis décadas. Fundado por Vicente Traver Sanz y continuado por su hijo Vicente Traver Ardiez, Wamba documentó la vida pública y cotidiana de la ciudad: festividades, inauguraciones, manifestaciones, escenas urbanas y detalles domésticos, capturando la evolución social y arquitectónica de Castellón. En la descripción de Facebook aparece \"Local comercial dedicado al Arte Fotográfico, fundada en Castellón en 1936 bajo el nombre: Wamba\"<br><br><b>Valor histórico y patrimonial:</b><br>El archivo fotográfico Wamba constituye un testimonio visual único del Castellón del siglo XX y principios del XXI. Las imágenes reflejan tanto la vida pública como la intimidad de la ciudad, siendo un recurso indispensable para preservar su memoria cultural y social. La continuidad de la saga familiar permitió mantener vivo este legado a lo largo de varias generaciones<br><br><b>Cierre:</b><br>El estudio permaneció activo hasta la muerte de Vicente Traver Ardiez en 2021",
         coordinates: [-0.037432, 39.984495],
         details: {
@@ -12,10 +12,10 @@ const locations = [
             category: "Tiendas históricas",
             status: "",
             contact: "",
-            notes: "[1] <a href=\"https://www.elperiodicomediterraneo.com/castello/2021/01/11/castello-llora-wamba-fotografo-deja-40624182.html\">  Castelló llora a \"Wamba\", un fotógrafo que deja un legado de valor histórico</a><br><br>[2] <a href=\"https://www.elperiodicomediterraneo.com/castello/2018/06/02/3a-generacion-wamba-jorge-deja-41318843.html\">La 3ª generación de los Wamba, Jorge, deja la historia fotográfica</a>" },
+            notes: "[1] <a href=\"https://www.elperiodicomediterraneo.com/castello/2021/01/11/castello-llora-wamba-fotografo-deja-40624182.html\" target=_blank>  Castelló llora a \"Wamba\", un fotógrafo que deja un legado de valor histórico</a><br><br>[2] <a href=\"https://www.elperiodicomediterraneo.com/castello/2018/06/02/3a-generacion-wamba-jorge-deja-41318843.html\" target=_blank>La 3ª generación de los Wamba, Jorge, deja la historia fotográfica</a>" },
         icon: "❤️",
         images: [
-            "https://www.youtube.com/watch?v=bhHnQH2JHow",
+            "https://www.youtube.com/watch?v=JI21PpATuYM",
             "./images/01_Wamba_01_2019.jpg",
             "./images/01_Wamba_02_SD.jpg"
         ]
@@ -24,7 +24,7 @@ const locations = [
         id: 2,
         title: "Jeylo electricidad",
         type: "Tiendas históricas",
-        description: "<br>https://youtu.be/iP-HwA469j0<br><br>Una tienda histórica llevada  desde el 1963 para Jesús Medrano y su mujer Lolita que a los 85 años sigue atendiendo sus clientes",
+        description: "<br>Una tienda histórica llevada  desde el 1963 para Jesús Medrano y su mujer Lolita que a los 85 años sigue atendiendo sus clientes",
         coordinates: [-0.035932, 39.987768],
         details: {
             address: "",
@@ -35,6 +35,7 @@ const locations = [
         },
         icon: "❤️",
         images: [
+            "https://youtu.be/AjjpeLTnn5E",
             "./images/02_JeyloElectricidad_1_2019.jpg",
             "./images/02_JeyloElectricidad_2_2019.jpg"
           ]
@@ -466,7 +467,7 @@ function updateDescriptionTab() {
             <span>${currentLocation.details.address}</span>
         </div>
         <div class="detail-field">
-            <strong>🏷️ CATEGORIA</strong>
+            <strong>🏷️ CATEGORÍA</strong>
             <span>${currentLocation.details.category}</span>
         </div>
         
@@ -479,7 +480,7 @@ function updateDescriptionTab() {
             <span><a href="mailto:${currentLocation.details.contact}">${currentLocation.details.contact}</a></span>
         </div> -->
         <div class="detail-field">
-            <strong>📝 LINK</strong>
+            <strong>📝 ENLACES</strong>
             <span>${currentLocation.details.notes}</span>
         </div>
     `;
