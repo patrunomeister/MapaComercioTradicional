@@ -4,11 +4,33 @@ const locations = [
     {
         id: 1,
         title: "Wamba Fotografía",
-        type: "Castellón, ca. 1950–2021",
-        description: "<b>Gestor:</b>  Vicente Traver Ardiez (hasta 2021)<br><b>Fundador:</b> Vicente Traver Sanz<br><b>Tipo de comercio:</b> fotógrafo<br><br><b>Descripción:</b><br>Atelier emblemático de Castellón durante más de seis décadas. Fundado por Vicente Traver Sanz y continuado por su hijo Vicente Traver Ardiez, Wamba documentó la vida pública y cotidiana de la ciudad: festividades, inauguraciones, manifestaciones, escenas urbanas y detalles domésticos, capturando la evolución social y arquitectónica de Castellón. En la descripción de Facebook aparece \"Local comercial dedicado al Arte Fotográfico, fundada en Castellón en 1936 bajo el nombre: Wamba\"<br><br><b>Valor histórico y patrimonial:</b><br>El archivo fotográfico Wamba constituye un testimonio visual único del Castellón del siglo XX y principios del XXI. Las imágenes reflejan tanto la vida pública como la intimidad de la ciudad, siendo un recurso indispensable para preservar su memoria cultural y social. La continuidad de la saga familiar permitió mantener vivo este legado a lo largo de varias generaciones<br><br><b>Cierre:</b><br>El estudio permaneció activo hasta la muerte de Vicente Traver Ardiez en 2021",
+        type: "1936–2021",
+        description: "<b>Gestor:</b>  Vicente Traver Ardiez (hasta 2021)<br> \
+        <b>Fundador:</b> Vicente Traver Sanz<br> \
+        <b>Tipo de comercio:</b> Estudio fotográfico<br><br> \
+        <b>Descripción:</b><br> \
+        Atelier emblemático de Castellón durante más de seis décadas. \
+        Fundado por Vicente Traver Sanz y continuado por su hijo \
+        Vicente Traver Ardiez, \"Wamba\" documentó la vida pública y cotidiana \
+        de la ciudad: festividades, inauguraciones, manifestaciones, escenas \
+        urbanas y detalles domésticos, capturando la evolución social y \
+        arquitectónica de Castellón. En su presentación en redes sociales se \
+        describe como: \"Local comercial dedicado al Arte Fotográfico, fundado \
+        en Castellón en 1936 bajo el nombre Wamba\" \
+        <br><br><b>Valor histórico y patrimonial:</b><br> \
+        El archivo fotográfico Wamba constituye un testimonio visual único \
+        del Castellón del siglo XX y principios del XXI. Sus imágenes \
+        reflejan la vida pública y la intimidad de la ciudad, convirtiéndose \
+        en una fuente esencial para preservar su memoria cultural y social. \
+        La continuidad de la saga familiar permitió mantener vivo este legado \
+        durante varias generaciones. \
+        <br><br><b>Cierre:</b><br> \
+        El estudio permaneció activo hasta el fallecimiento de Vicente Traver \
+        Ardiez en 2021.",
+
         coordinates: [-0.037432, 39.984495],
         details: {
-            address: "<b>C/ San Vicente, 40</b><I> (anteriormente C/ Mayor, 11)</i><br>1936–2021",
+            address: "C/ San Vicente, 40 (anteriormente C/ Mayor, 11)",
             category: "Tiendas históricas",
             status: "",
             contact: "",
@@ -22,16 +44,45 @@ const locations = [
     },
     {
         id: 2,
-        title: "Jeylo electricidad",
-        type: "Tiendas históricas",
-        description: "<br>Una tienda histórica llevada  desde el 1963 para Jesús Medrano y su mujer Lolita que a los 85 años sigue atendiendo sus clientes",
+        title: "Jeylo, tienda de electricidad",
+        type: "1963–",
+        description: "<b>Fundadores:</b> Lolita Badenes y Jesús Medrano<br> \
+        <b>Gerente:</b> Lolita Badenes<br> \
+        <b>Tipo de comercio:</b> Tienda de electricidad, venta y reparación de aparatos \
+        <br><br><b>Descripción:</b><br> \
+        Jeylo es un comercio emblemático del centro de Castellón, fundado por Jesús Medrano y su esposa \
+        Lolita Badenes. Inaugurado en noviembre de 1963, cuando la televisión era todavía una novedad. \
+        Fue uno de los primeros establecimientos de la ciudad en vender y reparar televisores, \
+        hasta el punto de convertirse en un espacio de visionado comunitario: el día de la apertura, \
+        los vecinos acudieron a ver en directo la noticia del asesinato de Kennedy.<br><br> \
+        <b>Importancia histórica y cultural:</b><br> \
+        Más que un comercio, Jeylo ha sido un punto de referencia social en el barrio. \
+        Durante décadas los vecinos se reunían en la tienda para ver acontecimientos \
+        colectivos, como la boda de Balduino y Fabiola, o para alquilar tocadiscos y \
+        altavoces para fiestas locales. Lola y Jesús participaron activamente en la \
+        vida cultural del entorno, contribuyendo al tejido social de la ciudad. \
+        Hoy en día [19.11.2025], el establecimiento refleja la perseverancia y \
+        el espíritu emprendedor de Lola, que a sus casi 90 años \
+        continúa ejerciendo su profesión. \<br><br> \
+        <b>Valor patrimonial:</b><br> \
+        Jeylo representa la memoria viva del comercio tradicional en Castellón. \
+        La tienda es un ejemplo de cercanía, confianza y servicio personalizado, \
+        consolidándose como un espacio donde la comunidad se reúne, se escucha \
+        y se comparte conocimiento práctico y cotidiano. \
+        <br><br> \
+        <b>Actividad actual:</b><br> \
+        A sus casi 90 años, Lola continúa al frente del negocio, \
+        levantando la persiana cada día y atendiendo personalmente a los clientes, \
+        manteniendo vivo el legado familiar y su reputación como \
+        'asesora en electricidad' del barrio centro. \
+        ",
         coordinates: [-0.035932, 39.987768],
         details: {
-            address: "",
-            category: "",
+            address: "C/ Caballeros, 36",
+            category: "Tiendas históricas",
             status: "",
             contact: "",
-            notes: ""
+            notes: "[1]<a href=\"https://www.castelloninformacion.com/lola-badenes-maria-dinu-monica-avila-y-jm-arquimbau-premiados-por-mujeres-en-igualdad/\" target=_blank>Lola Badenes, María Dinu, Mónica Ávila y JM Arquimbau, premiados por \"Mujeres en Igualdad\"</a>"
         },
         icon: "❤️",
         images: [
@@ -43,28 +94,28 @@ const locations = [
     {
         id: 3,
         title: "Discos Medicinales, Música",
-        type: "Tiendas históricas",
+        type: "1983–2019",
         description: "<b>Fundador:</b> José Luis Roig<br> \
-        <b>Tipo de comercio:</b> Tienda especializada en música (vinilos, CDs y material de coleccionismo) \
+        <b>Tipo de comercio:</b> Tienda especializada en música (vinilos, CDs y material de coleccionismo)<br><br> \
         <b>Descripción:</b><br> \
         Fundada en 1983, Discos Medicinales se convirtió en un referente cultural y un verdadero santuario para \
-        los melómanos de Castellón. Su catálogo, amplio y cuidadosamente seleccionado, la situó entre las tiendas \
-        más apreciadas por coleccionistas y aficionados a la música.<br><br>\
+        los melómanos de Castellón. Su catálogo, amplio y cuidadosamente seleccionado, situó la tienda entre \
+        las más apreciadas por coleccionistas y aficionados a la música  en la ciudad.<br><br>\
         <b>Importancia histórica:</b> <br> \
         Durante más de tres décadas, la tienda fue un punto de encuentro para la comunidad musical local, \
-        contribuyendo de forma decisiva a la memoria cultural y social de la ciudad.<br>\
+        contribuyendo de forma decisiva a la memoria cultural y social de Castellón.<br>\
         Bajo la dirección de José Luis Roig, el establecimiento defendió un modelo de comercio basado en \
         la calidad, el conocimiento especializado y la atención personalizada, resistiendo a la competencia de \
         las grandes cadenas y al auge del consumo digital.<br><br>\
         <b>Cierre:</b><br> \
-        La tienda cerró su sede histórica en el verano de 2019",
+        La tienda cerró en el verano de 2019",
         coordinates: [-0.038213, 39.985078],
         details: {
-            address: "<b>C/Pascual Tirado, 1</b> 1983–2019",
+            address: "C/Pascual Tirado, 1",
             category: "Tiendas históricas",
             status: "",
             contact: "",
-            notes: "[1] <a href=\"https://castellonplaza.com/castellonplaza/discos-medicinales-cierra-su-emblematica-tienda-para-trasladarse-a-la-plaza-clave-en-septiembre\">Discos Medicinales cierra su emblemática tienda para trasladarse a la plaza Clavé en septiembre</a>"
+            notes: "[1] <a href=\"https://castellonplaza.com/castellonplaza/discos-medicinales-cierra-su-emblematica-tienda-para-trasladarse-a-la-plaza-clave-en-septiembre\" target=_blank>Discos Medicinales cierra su emblemática tienda para trasladarse a la plaza Clavé en septiembre</a>"
         },
         icon: "❤️",
         images: [
