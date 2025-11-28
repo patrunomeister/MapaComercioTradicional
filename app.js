@@ -726,10 +726,8 @@ function updateImagesTab() {
     });
 
     // Poi le immagini (aprono un modal interno al click)
-    // Salva la galleria corrente in una variabile globale per poterla navigare nel modal
-    window._imageGallery = images;
-    images.forEach((img, idx) => {
-        galleryHTML += `<div class="media-item image-item"><img src="${img}" alt="Immagine di ${currentLocation.title}" onclick="openImageModal(${idx})"></div>`;
+    images.forEach((img) => {
+        galleryHTML += `<div class="media-item image-item"><img src="${img}" alt="Immagine di ${currentLocation.title}"></div>`;
     });
 
     imagesContent.innerHTML = `
@@ -737,6 +735,21 @@ function updateImagesTab() {
             ${galleryHTML}
         </div>
     `;
+
+    // Ottimizzazione: usa event delegation per aprire il modal senza onclick inline
+    const galleryNode = imagesContent.querySelector('.image-gallery');
+    if (galleryNode && !galleryNode._hasClickListener) {
+        // Attach a single click handler to the gallery (avoid duplicate listeners on re-render)
+        galleryNode.addEventListener('click', (e) => {
+            const img = e.target.closest('img');
+            if (!img) return;
+            // compute index by finding the clicked image among gallery images
+            const imgs = Array.from(galleryNode.querySelectorAll('img'));
+            const idx = imgs.indexOf(img);
+            if (idx >= 0) openImageModal(idx);
+        });
+        galleryNode._hasClickListener = true;
+    }
 }
 
 // Inizializza la mappa quando il DOM è pronto
@@ -750,7 +763,9 @@ window.handleListItemClick = handleListItemClick; // Esporta per l'uso nell'HTML
 window.openPopup = openPopup; // Esporta per l'uso nell'HTML se necessario, anche se qui non lo è.
 // Funzione per aprire un modal con l'immagine selezionata
 function openImageModal(startIndex) {
-    const gallery = window._imageGallery || [];
+    // Recupera la galleria corrente dal DOM (images nella tab filtrate, non i video)
+    const galleryNode = document.querySelector('.image-gallery');
+    const gallery = galleryNode ? Array.from(galleryNode.querySelectorAll('img')).map(i => i.src) : [];
     if (!gallery || gallery.length === 0) return;
 
     let overlay = document.getElementById('imageModalOverlay');
@@ -767,7 +782,7 @@ function openImageModal(startIndex) {
             <div class="image-modal-content"><img src="${gallery[startIndex]}" alt="Immagine" /></div>
             ${hasMultiple ? '<button class="image-modal-next" aria-label="Successivo">▶</button>' : ''}
             <div class="image-modal-counter" id="imageModalCounter">${startIndex + 1} / ${gallery.length}</div>
-            <button class="image-modal-close" id="imageModalClose">Chiudi</button>
+            <button class="image-modal-close" id="imageModalClose">Cerrar</button>
         `;
 
         document.body.appendChild(overlay);
