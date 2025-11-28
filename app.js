@@ -766,6 +766,7 @@ function openImageModal(startIndex) {
             ${hasMultiple ? '<button class="image-modal-prev" aria-label="Precedente">◀</button>' : ''}
             <div class="image-modal-content"><img src="${gallery[startIndex]}" alt="Immagine" /></div>
             ${hasMultiple ? '<button class="image-modal-next" aria-label="Successivo">▶</button>' : ''}
+            <div class="image-modal-counter" id="imageModalCounter">${startIndex + 1} / ${gallery.length}</div>
             <button class="image-modal-close" id="imageModalClose">Chiudi</button>
         `;
 
@@ -810,6 +811,8 @@ function openImageModal(startIndex) {
         if (imgEl) imgEl.src = overlay._gallery[overlay._currentIndex];
         if (prevBtn) prevBtn.style.display = overlay._currentIndex > 0 ? 'block' : 'none';
         if (nextBtn) nextBtn.style.display = overlay._currentIndex < overlay._gallery.length - 1 ? 'block' : 'none';
+        const counter = overlay.querySelector('#imageModalCounter');
+        if (counter) counter.textContent = `${overlay._currentIndex + 1} / ${overlay._gallery.length}`;
     }
 
     // funzione di navigazione (usata dalle frecce e dai tasti)
@@ -825,6 +828,9 @@ function openImageModal(startIndex) {
         // aggiorna visibilità frecce
         if (prevBtn) prevBtn.style.display = ov._currentIndex > 0 ? 'block' : 'none';
         if (nextBtn) nextBtn.style.display = ov._currentIndex < ov._gallery.length - 1 ? 'block' : 'none';
+        // aggiorna anche il contatore
+        const counter = ov.querySelector('#imageModalCounter');
+        if (counter) counter.textContent = `${ov._currentIndex + 1} / ${ov._gallery.length}`;
     }
 
     // memorizza la funzione per poterla richiamare dall'event listener creato sopra

@@ -813,3 +813,37 @@ body {
         padding: 8px 10px;
     }
 }
+
+/* Transizioni separate per le frecce e il contatore */
+.image-modal-prev,
+.image-modal-next {
+    opacity: 0;
+    transition: transform 420ms cubic-bezier(.2,.8,.2,1), opacity 420ms ease;
+}
+.image-modal-prev { transform: translateY(-50%) translateX(-10px); }
+.image-modal-next { transform: translateY(-50%) translateX(10px); }
+.image-modal-overlay.open .image-modal-prev { transform: translateY(-50%) translateX(0); opacity: 1; transition-delay: 220ms; }
+.image-modal-overlay.open .image-modal-next { transform: translateY(-50%) translateX(0); opacity: 1; transition-delay: 260ms; }
+
+/* Contatore immagini */
+.image-modal-counter {
+    position: fixed;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 700;
+    z-index: 2010;
+    opacity: 0;
+    transition: transform 420ms ease, opacity 420ms ease;
+}
+.image-modal-overlay.open .image-modal-counter { transform: translateX(-50%) translateY(0); opacity: 1; transition-delay: 200ms; }
+
+.image-modal-prev,
+.image-modal-next,
+.image-modal-counter {
+    -webkit-tap-highlight-color: transparent;
+}
