@@ -36,6 +36,8 @@ const locations = [
             contact: "",
             notes: "[1] <a href=\"https://www.elperiodicomediterraneo.com/castello/2021/01/11/castello-llora-wamba-fotografo-deja-40624182.html\" target=_blank>  Castelló llora a \"Wamba\", un fotógrafo que deja un legado de valor histórico</a><br><br>[2] <a href=\"https://www.elperiodicomediterraneo.com/castello/2018/06/02/3a-generacion-wamba-jorge-deja-41318843.html\" target=_blank>La 3ª generación de los Wamba, Jorge, deja la historia fotográfica</a>" },
         icon: "❤️",
+        markerImage: "./images/Históricas_puntatore.png",
+        markerSize: 40,
         images: [
             "https://www.youtube.com/watch?v=JI21PpATuYM",
             "./images/01_Wamba_01_2019.jpg",
@@ -85,6 +87,8 @@ const locations = [
             notes: "[1]<a href=\"https://www.castelloninformacion.com/lola-badenes-maria-dinu-monica-avila-y-jm-arquimbau-premiados-por-mujeres-en-igualdad/\" target=_blank>Lola Badenes, María Dinu, Mónica Ávila y JM Arquimbau, premiados por \"Mujeres en Igualdad\"</a>"
         },
         icon: "❤️",
+        markerImage: "./images/Históricas_puntatore.png",
+        markerSize: 40,
         images: [
             "https://youtu.be/AjjpeLTnn5E",
             "./images/02_JeyloElectricidad_1_2019.jpg",
@@ -118,6 +122,8 @@ const locations = [
             notes: "[1] <a href=\"https://castellonplaza.com/castellonplaza/discos-medicinales-cierra-su-emblematica-tienda-para-trasladarse-a-la-plaza-clave-en-septiembre\" target=_blank>Discos Medicinales cierra su emblemática tienda para trasladarse a la plaza Clavé en septiembre</a>"
         },
         icon: "❤️",
+        markerImage: "./images/Históricas_puntatore.png",
+        markerSize: 40,
         images: [
             "./images/03_Discos_Medicinales_01_2019.jpg",
             "./images/03_Discos_Medicinales_02_2018.jpg",
@@ -140,10 +146,12 @@ const locations = [
             notes: ""
         },
         icon: "🌿",
+        markerImage: "./images/VALP_puntatore.png",
+        markerSize: 40,
         images: [
             "./images/04_Don_Berjino_01.jpg",
             "./images/04_Don_Berjino_02.jpg"
-                   ] 
+                   ]
     }
 ];
 
@@ -154,7 +162,7 @@ const mapConfig = {
     zoom: 13,
     minZoom: 10,
     maxZoom: 18,
-    style: 'mapbox://styles/mapbox/light-v11'
+    style: 'mapbox://styles/vincpatruno/cjz2d38ip0f251ck40ow9t2wz'
 };
 
 // Variabili globali
@@ -162,6 +170,7 @@ let map;
 let markers = [];
 let currentLocation = null;
 let currentPopup = null; // Aggiunto per tracciare il popup aperto
+let supercluster = null; // Per la gestione del clustering
 
 // Inizializzazione della mappa
 function initMap() {
@@ -194,8 +203,8 @@ function initMap() {
     // Aggiungi i controlli di navigazione
     map.addControl(new mapboxgl.NavigationControl(), 'top-right');
     
-    // Carica i marker sulla mappa
-    addMarkers();
+    // Inizializza il clustering dei marker
+    initializeClustering();
     
     // Popola la lista nella sidebar
     populateLocationList();
@@ -313,33 +322,164 @@ function handleTabSwitch(event) {
     document.getElementById(`${tabId}Content`).classList.add('active');
 }
 
-// Aggiungi marker sulla mappa
+// Funzione fallback: aggiungi marker direttamente senza clustering
 function addMarkers() {
+    console.log('Usando fallback addMarkers (senza clustering)');
     locations.forEach(location => {
-        // Crea un elemento DOM per il marker
-        const markerElement = document.createElement('div');
-        markerElement.className = `marker type-${location.type === 'Punto di raccolta' ? 2 : 1}`;
-        markerElement.innerHTML = location.icon;
-        
-        // Crea il marker
+        const markerElement = document.createElement('img');
+        markerElement.src = location.markerImage;
+        markerElement.alt = location.title || 'marker';
+        markerElement.className = 'marker-img';
+        const size = location.markerSize || 40;
+        markerElement.style.width = `${size}px`;
+        markerElement.style.height = `${size}px`;
+
         const marker = new mapboxgl.Marker(markerElement)
             .setLngLat(location.coordinates)
             .addTo(map);
-        
-	        // Non assegniamo il popup al marker qui, lo gestiamo con openPopup
-	        // per avere un controllo centralizzato e poterlo aprire dalla lista.
-	        // Il popup verrà creato e aperto dinamicamente.
-	        // marker.setPopup(popup);
-        
-        // Aggiungi event listener al marker
+
         markerElement.addEventListener('click', () => {
-            // Chiama la nuova funzione per gestire l'apertura del popup e la selezione
+            // Centra la mappa sul marker e applica uno zoom per evidenziare il punto
+            map.easeTo({
+                center: location.coordinates,
+                zoom: 16,
+                duration: 400
+            });
+
             handleMarkerClick(location.id);
-            openPopup(location); // Apri il popup anche al click sul marker
+            openPopup(location);
         });
-        
+
         markers.push({ marker, location });
     });
+}
+
+// Inizializza il clustering usando Supercluster
+function initializeClustering() {
+    // Verifica che Supercluster sia disponibile
+    if (typeof Supercluster === 'undefined') {
+        console.warn('Supercluster non disponibile, usando fallback senza clustering');
+        addMarkers();
+        return;
+    }
+
+    console.log('Supercluster disponibile, inizializzazione clustering...');
+
+    // Prepara i dati per il clustering: punti con proprietà location
+    const points = locations.map((loc, idx) => ({
+        type: 'Feature',
+        geometry: { type: 'Point', coordinates: [loc.coordinates[0], loc.coordinates[1]] },
+        properties: { idx, locationId: loc.id }
+    }));
+
+    // Inizializza Supercluster con raggio di 40px e zoom massimo di 16
+    supercluster = new Supercluster({ radius: 40, maxZoom: 16 });
+    supercluster.load(points);
+
+    // Aggiorna i marker e i cluster sulla mappa
+    map.on('move', updateClusterMarkers);
+    map.on('zoom', updateClusterMarkers);
+    
+    // Aggiorna subito
+    updateClusterMarkers();
+}
+
+// Funzione per aggiornare i marker e i cluster sulla mappa
+function updateClusterMarkers() {
+    if (!supercluster || !map) return;
+
+    try {
+        const zoom = map.getZoom();
+        const bounds = map.getBounds();
+        
+        // Ottieni i cluster e i marker per il viewport corrente
+        const clusters = supercluster.getClusters([
+            bounds.getWest(), bounds.getSouth(),
+            bounds.getEast(), bounds.getNorth()
+        ], Math.floor(zoom));
+
+        // Rimuovi i marker attuali
+        markers.forEach(m => m.marker.remove());
+        markers = [];
+
+        // Aggiungi i nuovi marker/cluster
+        clusters.forEach((feature, index) => {
+            const { geometry, properties } = feature;
+            const [lng, lat] = geometry.coordinates;
+
+            // Ritardo progressivo in millisecondi (5ms per ogni marker)
+            const delayMs = index * 5;
+
+            setTimeout(() => {
+                if (properties.cluster) {
+                    // È un cluster: mostra un marker con il conteggio
+                    const clusterElement = document.createElement('div');
+                    clusterElement.className = 'cluster-marker';
+                    clusterElement.innerHTML = `
+                        <div class="cluster-count">${properties.point_count}</div>
+                    `;
+                    clusterElement.style.width = `${30 + (properties.point_count / locations.length) * 20}px`;
+                    clusterElement.style.height = clusterElement.style.width;
+                    // Aggiungi animazione di apparizione
+                    clusterElement.style.animation = 'markerPop 0.4s ease-out';
+
+                    const marker = new mapboxgl.Marker(clusterElement)
+                        .setLngLat([lng, lat])
+                        .addTo(map);
+
+                    // Click sul cluster per zoommare
+                    clusterElement.addEventListener('click', () => {
+                        const expansionZoom = supercluster.getClusterExpansionZoom(properties.cluster_id);
+                        map.easeTo({
+                            center: [lng, lat],
+                            zoom: expansionZoom,
+                            duration: 400
+                        });
+                    });
+
+                    markers.push({ marker, location: null, isCluster: true });
+                } else {
+                    // È un singolo marker: mostra l'immagine del marker
+                    const locationIdx = properties.idx;
+                    const location = locations[locationIdx];
+                    if (!location) {
+                        console.warn('Location non trovata per idx:', locationIdx);
+                        return;
+                    }
+
+                    const markerElement = document.createElement('img');
+                    markerElement.src = location.markerImage;
+                    markerElement.alt = location.title || 'marker';
+                    markerElement.className = 'marker-img';
+                    const size = location.markerSize || 40;
+                    markerElement.style.width = `${size}px`;
+                    markerElement.style.height = `${size}px`;
+                    // Aggiungi animazione di apparizione
+                    markerElement.style.animation = 'markerPop 0.4s ease-out';
+
+                    const marker = new mapboxgl.Marker(markerElement)
+                        .setLngLat([lng, lat])
+                        .addTo(map);
+
+                    markerElement.addEventListener('click', () => {
+                        // Centra la mappa sul marker e applica uno zoom per evidenziare il punto
+                        map.easeTo({
+                            center: [lng, lat],
+                            zoom: 16,
+                            duration: 400
+                        });
+
+                        handleMarkerClick(location.id);
+                        openPopup(location);
+                    });
+
+                    markers.push({ marker, location });
+                }
+            }, delayMs);
+        });
+    } catch (error) {
+        console.error('Errore durante l\'aggiornamento dei cluster:', error);
+    }
 }
 
 // Funzione helper per attivare una tab
@@ -371,11 +511,9 @@ function populateLocationList() {
         item.className = 'location-item';
         item.id = `location-${location.id}`;
         
-        const iconClass = location.type === 'Punto di raccolta' ? 'type-2' : 'type-1';
-        
         item.innerHTML = `
-            <div class="location-icon ${iconClass}">
-                ${location.icon}
+            <div class="location-icon">
+                <img src="${location.markerImage}" alt="${location.title}" class="location-marker-img">
             </div>
             <div class="location-info">
                 <h3>${location.title}</h3>
@@ -587,9 +725,9 @@ function updateImagesTab() {
         `;
     });
 
-    // Poi le immagini
+    // Poi le immagini (aprono un modal interno al click)
     images.forEach(img => {
-        galleryHTML += `<div class="media-item image-item"><img src="${img}" alt="Immagine di ${currentLocation.title}" onclick="window.open('${img}', '_blank')"></div>`;
+        galleryHTML += `<div class="media-item image-item"><img src="${img}" alt="Immagine di ${currentLocation.title}" onclick="openImageModal('${img}')"></div>`;
     });
 
     imagesContent.innerHTML = `
@@ -608,3 +746,54 @@ window.activateTab = activateTab; // Rendi la funzione di attivazione tab dispon
 // Rimuovi window.closeDetailCard in quanto non più necessaria
 window.handleListItemClick = handleListItemClick; // Esporta per l'uso nell'HTML se necessario, anche se qui non lo è.
 window.openPopup = openPopup; // Esporta per l'uso nell'HTML se necessario, anche se qui non lo è.
+// Funzione per aprire un modal con l'immagine selezionata
+function openImageModal(src) {
+    // Se il modal non esiste, crealo
+    let overlay = document.getElementById('imageModalOverlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = 'imageModalOverlay';
+        overlay.className = 'image-modal-overlay';
+        overlay.innerHTML = `
+            <div class="image-modal-content">
+                <img src="${src}" alt="Immagine" />
+            </div>
+            <button class="image-modal-close" id="imageModalClose">Chiudi</button>
+        `;
+        document.body.appendChild(overlay);
+
+        // Click fuori dall'immagine chiude il modal
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closeImageModal();
+        });
+
+        // Bottone Chiudi
+        overlay.querySelector('#imageModalClose').addEventListener('click', closeImageModal);
+
+        // ESC per chiudere
+        document.addEventListener('keydown', function escHandler(e) {
+            if (e.key === 'Escape') closeImageModal();
+        });
+    } else {
+        // Aggiorna l'immagine se il modal esiste già
+        const img = overlay.querySelector('.image-modal-content img');
+        if (img) img.src = src;
+    }
+
+    // Mostra il modal
+    overlay.classList.add('open');
+}
+
+function closeImageModal() {
+    const overlay = document.getElementById('imageModalOverlay');
+    if (!overlay) return;
+    overlay.classList.remove('open');
+    // opzionale: rimuovi dal DOM dopo l'animazione
+    setTimeout(() => {
+        if (overlay && !overlay.classList.contains('open')) {
+            overlay.remove();
+        }
+    }, 300);
+}
+
+window.openImageModal = openImageModal;

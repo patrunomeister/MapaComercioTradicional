@@ -204,25 +204,30 @@ body {
 }
     
 .location-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border-radius: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-size: 18px;
     flex-shrink: 0;
     margin-top: 2px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background: transparent;
+}
+
+.location-marker-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
 }
     
 .location-icon.type-1 {
-    background-color: var(--marker-red);
+    background-color: transparent;
 }
     
 .location-icon.type-2 {
-    background-color: var(--marker-blue);
+    background-color: transparent;
 }
     
 .location-info h3 {
@@ -394,7 +399,7 @@ body {
     font-size: 18px;
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    border: 3px solid white;
+    border: none;
     transition: all 0.2s ease;
 }
     
@@ -412,6 +417,42 @@ body {
     
 .marker-icon {
     font-size: 20px;
+}
+
+/* Stile per i marker immagine */
+.marker-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: contain;
+    cursor: pointer;
+    border: none;
+    /*box-shadow: 0 2px 4px rgba(0,0,0,0.2);*/
+}
+
+/* Stili per i marker cluster */
+.cluster-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.cluster-marker:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    transform: scale(1.05);
+}
+
+.cluster-count {
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
 }
 
 /* Stili per la tab Immagini */
@@ -664,4 +705,51 @@ body {
         font-size: 12px;
         padding: 8px 4px;
     }
+}
+
+/* Modal per visualizzazione immagine */
+.image-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+.image-modal-overlay.open {
+    display: flex;
+}
+.image-modal-content {
+    max-width: 92%;
+    max-height: 82%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image-modal-content img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 6px;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.6);
+}
+.image-modal-close {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 2010;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+}
+.image-modal-close:hover {
+    background: rgba(0,0,0,0.85);
 }
