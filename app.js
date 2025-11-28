@@ -726,8 +726,10 @@ function updateImagesTab() {
     });
 
     // Poi le immagini (aprono un modal interno al click)
-    images.forEach(img => {
-        galleryHTML += `<div class="media-item image-item"><img src="${img}" alt="Immagine di ${currentLocation.title}" onclick="openImageModal('${img}')"></div>`;
+    // Salva la galleria corrente in una variabile globale per poterla navigare nel modal
+    window._imageGallery = images;
+    images.forEach((img, idx) => {
+        galleryHTML += `<div class="media-item image-item"><img src="${img}" alt="Immagine di ${currentLocation.title}" onclick="openImageModal(${idx})"></div>`;
     });
 
     imagesContent.innerHTML = `
@@ -747,19 +749,26 @@ window.activateTab = activateTab; // Rendi la funzione di attivazione tab dispon
 window.handleListItemClick = handleListItemClick; // Esporta per l'uso nell'HTML se necessario, anche se qui non lo è.
 window.openPopup = openPopup; // Esporta per l'uso nell'HTML se necessario, anche se qui non lo è.
 // Funzione per aprire un modal con l'immagine selezionata
-function openImageModal(src) {
-    // Se il modal non esiste, crealo
+function openImageModal(startIndex) {
+    const gallery = window._imageGallery || [];
+    if (!gallery || gallery.length === 0) return;
+
     let overlay = document.getElementById('imageModalOverlay');
+    const hasMultiple = gallery.length > 1;
+
     if (!overlay) {
         overlay = document.createElement('div');
         overlay.id = 'imageModalOverlay';
         overlay.className = 'image-modal-overlay';
+
+        // Frecce prev/next (visibili solo se più immagini)
         overlay.innerHTML = `
-            <div class="image-modal-content">
-                <img src="${src}" alt="Immagine" />
-            </div>
+            ${hasMultiple ? '<button class="image-modal-prev" aria-label="Precedente">◀</button>' : ''}
+            <div class="image-modal-content"><img src="${gallery[startIndex]}" alt="Immagine" /></div>
+            ${hasMultiple ? '<button class="image-modal-next" aria-label="Successivo">▶</button>' : ''}
             <button class="image-modal-close" id="imageModalClose">Chiudi</button>
         `;
+
         document.body.appendChild(overlay);
 
         // Click fuori dall'immagine chiude il modal
@@ -770,30 +779,81 @@ function openImageModal(src) {
         // Bottone Chiudi
         overlay.querySelector('#imageModalClose').addEventListener('click', closeImageModal);
 
-        // ESC per chiudere
-        document.addEventListener('keydown', function escHandler(e) {
+        // Prev/Next handlers
+        if (hasMultiple) {
+            overlay.querySelector('.image-modal-prev').addEventListener('click', () => {
+                navigateImage(overlay, -1);
+            });
+            overlay.querySelector('.image-modal-next').addEventListener('click', () => {
+                navigateImage(overlay, 1);
+            });
+        }
+
+        // Key handler per ESC e frecce
+        overlay._keyHandler = function (e) {
             if (e.key === 'Escape') closeImageModal();
-        });
-    } else {
-        // Aggiorna l'immagine se il modal esiste già
-        const img = overlay.querySelector('.image-modal-content img');
-        if (img) img.src = src;
+            if (e.key === 'ArrowLeft') navigateImage(overlay, -1);
+            if (e.key === 'ArrowRight') navigateImage(overlay, 1);
+        };
+        document.addEventListener('keydown', overlay._keyHandler);
     }
 
-    // Mostra il modal
+    // Imposta indice corrente e aggiorna immagine
+    overlay._gallery = gallery;
+    overlay._currentIndex = Math.max(0, Math.min(startIndex || 0, gallery.length - 1));
+
+    const imgEl = overlay.querySelector('.image-modal-content img');
+    const prevBtn = overlay.querySelector('.image-modal-prev');
+    const nextBtn = overlay.querySelector('.image-modal-next');
+
+    function refresh() {
+        if (imgEl) imgEl.src = overlay._gallery[overlay._currentIndex];
+        if (prevBtn) prevBtn.style.display = overlay._currentIndex > 0 ? 'block' : 'none';
+        if (nextBtn) nextBtn.style.display = overlay._currentIndex < overlay._gallery.length - 1 ? 'block' : 'none';
+    }
+
+    // funzione di navigazione (usata dalle frecce e dai tasti)
+    function navigateImage(ov, delta) {
+        if (!ov || !ov._gallery) return;
+        const newIndex = ov._currentIndex + delta;
+        if (newIndex < 0 || newIndex >= ov._gallery.length) return;
+        ov._currentIndex = newIndex;
+        const img = ov.querySelector('.image-modal-content img');
+        if (img) {
+            img.src = ov._gallery[ov._currentIndex];
+        }
+        // aggiorna visibilità frecce
+        if (prevBtn) prevBtn.style.display = ov._currentIndex > 0 ? 'block' : 'none';
+        if (nextBtn) nextBtn.style.display = ov._currentIndex < ov._gallery.length - 1 ? 'block' : 'none';
+    }
+
+    // memorizza la funzione per poterla richiamare dall'event listener creato sopra
+    overlay._navigateImage = navigateImage;
+
+    // mostra il modal
     overlay.classList.add('open');
+    // refresh immediato per impostare correttamente le frecce
+    refresh();
 }
 
 function closeImageModal() {
     const overlay = document.getElementById('imageModalOverlay');
     if (!overlay) return;
+    // rimuovi key handler
+    if (overlay._keyHandler) document.removeEventListener('keydown', overlay._keyHandler);
     overlay.classList.remove('open');
     // opzionale: rimuovi dal DOM dopo l'animazione
     setTimeout(() => {
         if (overlay && !overlay.classList.contains('open')) {
             overlay.remove();
         }
-    }, 300);
+    }, 500);
+}
+
+// helper esterno chiamato dai button e dall'handler per navigare
+function navigateImage(overlay, delta) {
+    if (!overlay) return;
+    if (typeof overlay._navigateImage === 'function') overlay._navigateImage(overlay, delta);
 }
 
 window.openImageModal = openImageModal;

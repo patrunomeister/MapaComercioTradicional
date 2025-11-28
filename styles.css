@@ -710,18 +710,19 @@ body {
 /* Modal per visualizzazione immagine */
 .image-modal-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: rgba(0,0,0,0.6);
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 600ms cubic-bezier(.2,.8,.2,1);
 }
 .image-modal-overlay.open {
-    display: flex;
+    opacity: 1;
+    pointer-events: auto;
 }
 .image-modal-content {
     max-width: 92%;
@@ -730,12 +731,24 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: translateY(8px) scale(0.96);
+    transition: transform 600ms cubic-bezier(.2,.8,.2,1);
+}
+.image-modal-overlay.open .image-modal-content {
+    transform: translateY(0) scale(1);
 }
 .image-modal-content img {
     max-width: 100%;
     max-height: 100%;
     border-radius: 6px;
     box-shadow: 0 6px 30px rgba(0,0,0,0.6);
+    transform: scale(0.94);
+    opacity: 0;
+    transition: transform 600ms cubic-bezier(.2,.8,.2,1), opacity 480ms ease;
+}
+.image-modal-overlay.open .image-modal-content img {
+    transform: scale(1);
+    opacity: 1;
 }
 .image-modal-close {
     position: fixed;
@@ -749,7 +762,54 @@ body {
     border-radius: 6px;
     cursor: pointer;
     font-weight: 700;
+    transform: translateY(12px);
+    opacity: 0;
+    transition: transform 420ms ease, opacity 420ms ease;
+}
+.image-modal-overlay.open .image-modal-close {
+    transform: translateY(0);
+    opacity: 1;
 }
 .image-modal-close:hover {
     background: rgba(0,0,0,0.85);
+}
+
+/* Frecce di navigazione per il modal immagine */
+.image-modal-prev,
+.image-modal-next {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2010;
+    cursor: pointer;
+    font-size: 18px;
+    opacity: 0.95;
+}
+.image-modal-prev { left: 18px; }
+.image-modal-next { right: 18px; }
+.image-modal-prev:hover,
+.image-modal-next:hover {
+    background: rgba(0,0,0,0.75);
+}
+
+@media (max-width: 600px) {
+    .image-modal-prev, .image-modal-next {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+    }
+    .image-modal-close {
+        right: 12px;
+        bottom: 12px;
+        padding: 8px 10px;
+    }
 }
