@@ -44,7 +44,7 @@ const locations = [
          entre productor, territorio y comunidad local. <br>\
          [Entrevista realizada en 2025]\
         ",
-        coordinates: [-0.035932, 39.987768],
+        coordinates: [-0.03724, 39.98685],
         details: {
             address: "Calle de Mealla, 13",
             category: "Venta a la porta",
@@ -61,60 +61,42 @@ const locations = [
     },
     {
         id: 3,
-        title: "Discos Medicinales, Música",
-        type: "1983–2019",
-        description: "<b>Fundador:</b> José Luis Roig<br> \
-        <b>Tipo de comercio:</b> Tienda especializada en música (vinilos, CDs y material de coleccionismo)<br><br> \
-        <b>Descripción:</b><br> \
-        Fundada en 1983, Discos Medicinales se convirtió en un referente cultural y un verdadero santuario para \
-        los melómanos de Castellón. Su catálogo, amplio y cuidadosamente seleccionado, situó la tienda entre \
-        las más apreciadas por coleccionistas y aficionados a la música  en la ciudad.<br><br>\
-        <b>Importancia histórica:</b> <br> \
-        Durante más de tres décadas, la tienda fue un punto de encuentro para la comunidad musical local, \
-        contribuyendo de forma decisiva a la memoria cultural y social de Castellón.<br>\
-        Bajo la dirección de José Luis Roig, el establecimiento defendió un modelo de comercio basado en \
-        la calidad, el conocimiento especializado y la atención personalizada, resistiendo a la competencia de \
-        las grandes cadenas y al auge del consumo digital.<br><br>\
-        <b>Cierre:</b><br> \
-        La tienda cerró en el verano de 2019",
-        coordinates: [-0.038213, 39.985078],
+        title: "María Teresa",
+        type: "2019",
+        description: "-",
+        coordinates: [-0.03634, 39.99229],
         details: {
-            address: "C/Pascual Tirado, 1",
-            category: "Tiendas históricas",
+            address: "Calle San Roque, 70",
+            category: "Venta a la porta",
             status: "",
             contact: "",
-            notes: "[1] <a href=\"https://castellonplaza.com/castellonplaza/discos-medicinales-cierra-su-emblematica-tienda-para-trasladarse-a-la-plaza-clave-en-septiembre\" target=_blank>Discos Medicinales cierra su emblemática tienda para trasladarse a la plaza Clavé en septiembre</a>"
+            notes: ""
         },
-        icon: "❤️",
-        markerImage: "./images/Históricas_puntatore.png",
+        icon: "",
+        markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/03_Discos_Medicinales_01_2019.jpg",
-            "./images/03_Discos_Medicinales_02_2018.jpg",
-            "./images/03_Discos_Medicinales_03_2018.jpg",
-            "./images/03_Discos_Medicinales_04_2018.jpg",
-            "./images/03_Discos_Medicinales_05_2018.jpg"
+            "./images/03_María_Teresa_01.jpg"
                    ] // Nessuna immagine aggiuntiva per questo esempio
     },
     {
         id: 4,
-        title: "Don Bergino",
-        type: "Venta a la porta",
-        description: "Frutas y hortalizas de su huerta",
-        coordinates: [-0.037221, 39.987095],
+        title: "Francisca",
+        type: " 2018",
+        description: "-",
+        coordinates: [-0.04051, 39.98874],
         details: {
-            address: "",
+            address: "Calle de Villaroig, 60",
             category: "",
             status: "",
             contact: "",
             notes: ""
         },
-        icon: "🌿",
+        icon: "",
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/04_Don_Berjino_01.jpg",
-            "./images/04_Don_Berjino_02.jpg"
+            "./images/04_Francisca_01.jpeg"
                    ]
     }
 ];
