@@ -3,96 +3,60 @@
 const locations = [
     {
         id: 1,
-        title: "Wamba Fotografía",
-        type: "1936–2021",
-        description: "<b>Gestor:</b>  Vicente Traver Ardiez (hasta 2021)<br> \
-        <b>Fundador:</b> Vicente Traver Sanz<br> \
-        <b>Tipo de comercio:</b> Estudio fotográfico<br><br> \
-        <b>Descripción:</b><br> \
-        Atelier emblemático de Castellón durante más de seis décadas. \
-        Fundado por Vicente Traver Sanz y continuado por su hijo \
-        Vicente Traver Ardiez, \"Wamba\" documentó la vida pública y cotidiana \
-        de la ciudad: festividades, inauguraciones, manifestaciones, escenas \
-        urbanas y detalles domésticos, capturando la evolución social y \
-        arquitectónica de Castellón. En su presentación en redes sociales se \
-        describe como: \"Local comercial dedicado al Arte Fotográfico, fundado \
-        en Castellón en 1936 bajo el nombre Wamba\" \
-        <br><br><b>Valor histórico y patrimonial:</b><br> \
-        El archivo fotográfico Wamba constituye un testimonio visual único \
-        del Castellón del siglo XX y principios del XXI. Sus imágenes \
-        reflejan la vida pública y la intimidad de la ciudad, convirtiéndose \
-        en una fuente esencial para preservar su memoria cultural y social. \
-        La continuidad de la saga familiar permitió mantener vivo este legado \
-        durante varias generaciones. \
-        <br><br><b>Cierre:</b><br> \
-        El estudio permaneció activo hasta el fallecimiento de Vicente Traver \
-        Ardiez en 2021.",
+        title: "Verduras y naranjas Bou",
+        type: "2016, 2019 y 2020",
+        description: "-",
 
-        coordinates: [-0.037432, 39.984495],
+        coordinates: [-0.04135, 39.98506],
         details: {
-            address: "C/ San Vicente, 40 (anteriormente C/ Mayor, 11)",
-            category: "Tiendas históricas",
+            address: "Calle San Blas, 16",
+            category: "Venta a la porta",
             status: "",
             contact: "",
-            notes: "[1] <a href=\"https://www.elperiodicomediterraneo.com/castello/2021/01/11/castello-llora-wamba-fotografo-deja-40624182.html\" target=_blank>  Castelló llora a \"Wamba\", un fotógrafo que deja un legado de valor histórico</a><br><br>[2] <a href=\"https://www.elperiodicomediterraneo.com/castello/2018/06/02/3a-generacion-wamba-jorge-deja-41318843.html\" target=_blank>La 3ª generación de los Wamba, Jorge, deja la historia fotográfica</a>" },
-        icon: "❤️",
-        markerImage: "./images/Históricas_puntatore.png",
+            notes: "" },
+        icon: "",
+        markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "https://www.youtube.com/watch?v=JI21PpATuYM",
-            "./images/01_Wamba_01_2019.jpg",
-            "./images/01_Wamba_02_SD.jpg"
+            "./images/01_VeN_Bou_01.jpg",
+            "./images/01_VeN_Bou_02.jpg",
+            "./images/01_VeN_Bou_03.jpg",    
+            "./images/01_VeN_Bou_04.jpg",                              
+            "./images/01_VeN_Bou_05.jpg"
         ]
     },
     {
         id: 2,
-        title: "Jeylo, tienda de electricidad",
-        type: "1963–",
-        description: "<b>Fundadores:</b> Lolita Badenes y Jesús Medrano<br> \
-        <b>Gerente:</b> Lolita Badenes<br> \
-        <b>Tipo de comercio:</b> Tienda de electricidad, venta y reparación de aparatos \
-        <br><br><b>Descripción:</b><br> \
-        Jeylo es un comercio emblemático del centro de Castellón, fundado por Jesús Medrano y su esposa \
-        Lolita Badenes. Inaugurado en noviembre de 1963, cuando la televisión era todavía una novedad. \
-        Fue uno de los primeros establecimientos de la ciudad en vender y reparar televisores, \
-        hasta el punto de convertirse en un espacio de visionado comunitario: el día de la apertura, \
-        los vecinos acudieron a ver en directo la noticia del asesinato de Kennedy.<br><br> \
-        <b>Importancia histórica y cultural:</b><br> \
-        Más que un comercio, Jeylo ha sido un punto de referencia social en el barrio. \
-        Durante décadas los vecinos se reunían en la tienda para ver acontecimientos \
-        colectivos, como la boda de Balduino y Fabiola, o para alquilar tocadiscos y \
-        altavoces para fiestas locales. Lola y Jesús participaron activamente en la \
-        vida cultural del entorno, contribuyendo al tejido social de la ciudad. \
-        Hoy en día [19.11.2025], el establecimiento refleja la perseverancia y \
-        el espíritu emprendedor de Lola, que a sus casi 90 años \
-        continúa ejerciendo su profesión. \<br><br> \
-        <b>Valor patrimonial:</b><br> \
-        Jeylo representa la memoria viva del comercio tradicional en Castellón. \
-        La tienda es un ejemplo de cercanía, confianza y servicio personalizado, \
-        consolidándose como un espacio donde la comunidad se reúne, se escucha \
-        y se comparte conocimiento práctico y cotidiano. \
-        <br><br> \
-        <b>Actividad actual:</b><br> \
-        A sus casi 90 años, Lola continúa al frente del negocio, \
-        levantando la persiana cada día y atendiendo personalmente a los clientes, \
-        manteniendo vivo el legado familiar y su reputación como \
-        'asesora en electricidad' del barrio centro. \
+        title: "Fernando",
+        type: "2019",
+        description: "Fernando gestiona su punto de “venta a la porta” \
+        en el casco histórico de Castellón. Frutas y verduras proceden de \
+        la huerta familiar situada en la partida Brunella, \
+        una parcela heredada y cultivada por generaciones. \
+        La producción se realiza a escala familiar, con la colaboración \
+        de su hermano, siguiendo prácticas agrícolas tradicionales. \
+        El corrillo que a menudo se forma en frente de “la porta” \
+        se configura como un espacio relacional que refuerza los vínculos \
+        sociales del barrio. Este caso constituye un ejemplo significativo\
+         de la continuidad entre el espacio rural y el urbano, donde \
+         la venta directa actúa no solo como actividad económica, \
+         sino también como dispositivo social que refuerza los vínculos \
+         entre productor, territorio y comunidad local. <br>\
+         [Entrevista realizada en 2025]\
         ",
         coordinates: [-0.035932, 39.987768],
         details: {
-            address: "C/ Caballeros, 36",
-            category: "Tiendas históricas",
+            address: "Calle de Mealla, 13",
+            category: "Venta a la porta",
             status: "",
             contact: "",
-            notes: "[1]<a href=\"https://www.castelloninformacion.com/lola-badenes-maria-dinu-monica-avila-y-jm-arquimbau-premiados-por-mujeres-en-igualdad/\" target=_blank>Lola Badenes, María Dinu, Mónica Ávila y JM Arquimbau, premiados por \"Mujeres en Igualdad\"</a>"
-        },
-        icon: "❤️",
-        markerImage: "./images/Históricas_puntatore.png",
+            notes: ""        },
+        icon: "",
+        markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "https://youtu.be/AjjpeLTnn5E",
-            "./images/02_JeyloElectricidad_1_2019.jpg",
-            "./images/02_JeyloElectricidad_2_2019.jpg"
+            "./images/02_Fernando_01.jpg",
+            "./images/02_Fernando_02.jpg"
           ]
     },
     {
