@@ -87,7 +87,7 @@ const locations = [
         coordinates: [-0.04051, 39.98874],
         details: {
             address: "Calle de Villaroig, 60",
-            category: "",
+            category: "Venta a la porta",
             status: "",
             contact: "",
             notes: ""
@@ -97,6 +97,214 @@ const locations = [
         markerSize: 40,
         images: [
             "./images/04_Francisca_01.jpeg"
+                   ]
+    },
+    {
+        id: 5,
+        title: "María",
+        type: " 2019",
+        description: "-",
+        coordinates: [-0.03691, 39.99364],
+        details: {
+            address: "Calle San Roque, 157",
+            category: "Venta a la porta",
+            status: "",
+            contact: "",
+            notes: ""
+        },
+        icon: "",
+        markerImage: "./images/VALP_puntatore.png",
+        markerSize: 40,
+        images: [
+            "./images/05_María_01.jpg"
+                   ]
+    },
+    {
+        id: 6,
+        title: "Desconocido",
+        type: " 2019",
+        description: "-",
+        coordinates: [-0.04417, 39.97881],
+        details: {
+            address: "Avenida de Valencia, 15",
+            category: "Venta a la porta",
+            status: "",
+            contact: "",
+            notes: ""
+        },
+        icon: "",
+        markerImage: "./images/VALP_puntatore.png",
+        markerSize: 40,
+        images: [
+            "./images/06_Desconocido_Valencia_01.jpg"
+                   ]
+    },
+    {
+        id: 7,
+        title: "José Juan Sidro Tirado",
+        type: " 2019,  2021",
+        description: "En la partida de Taxida, José Juan cultiva clementinas \
+        de la variedad Arrufatina y naranjas Navelate, en Coscollosa solo \
+        clementinas de la variedad Clemenules. Es socio de la Cooperativa \
+        San Isidro de Castellón, pero comenta que \"defiende\" sus cítricos \
+        vendiendo a comerciantes y a la porta. [Entrevista realizada en 2021] \
+",
+        coordinates: [-0.03476, 39.99037],
+        details: {
+            address: "Calle Alcalde Tárrega, 24 c",
+            category: "Venta a la porta",
+            status: "",
+            contact: "",
+            notes: ""
+        },
+        icon: "",
+        markerImage: "./images/VALP_puntatore.png",
+        markerSize: 40,
+        images: [
+            "./images/07_José_Juan_01.jpg",
+            "./images/07_José_Juan_02.jpg",
+            "./images/07_José_Juan_03.jpg"
+                   ]
+    },
+    {
+        id: 8,
+        title: "Desconocido",
+        type: "2019",
+        description: "",
+        coordinates: [-0.03664, 39.98933],
+        details: {
+            address: "Calle San Felix 20",
+            category: "Venta a la porta",
+            status: "",
+            contact: "",
+            notes: ""
+        },
+        icon: "",
+        markerImage: "./images/VALP_puntatore.png",
+        markerSize: 40,
+        images: [
+            "./images/08_Desconocido_S_Felix_01.jpg"
+                   ]
+    },
+    {
+        id: 9,
+        title: "Desconocido",
+        type: "2019",
+        description: "",
+        coordinates: [-0.034108, 39.986668],
+        details: {
+            address: "Calle del Gobernador Bermúdez de Castro, 85",
+            category: "Venta a la porta",
+            status: "",
+            contact: "",
+            notes: ""
+        },
+        icon: "",
+        markerImage: "./images/VALP_puntatore.png",
+        markerSize: 40,
+        images: [
+            "./images/09_Desconocida_Gobernador_01.jpg"
+                   ]
+    },
+    {
+        id: 10,
+        title: "Desconocido",
+        type: "2019",
+        description: "",
+        coordinates: [-0.04126, 39.98489],
+        details: {
+            address: "Calle San Blas, 10",
+            category: "Venta a la porta",
+            status: "",
+            contact: "",
+            notes: ""
+        },
+        icon: "",
+        markerImage: "./images/VALP_puntatore.png",
+        markerSize: 40,
+        images: [
+            "./images/10_Desconocido_San_Blas_01.jpg"
+                   ]
+    },
+    {
+        id: 11,
+        title: "Desconocido",
+        type: "2020",
+        description: "",
+        coordinates: [-0.039105, 39.983114],
+        details: {
+            address: "Calle Ximenez, 5",
+            category: "Venta a la porta",
+            status: "",
+            contact: "",
+            notes: ""
+        },
+        icon: "",
+        markerImage: "./images/VALP_puntatore.png",
+        markerSize: 40,
+        images: [
+            "./images/11_Desconocido_Ximenez_01.jpg"
+                   ]
+    },
+    {
+        id: 12,
+        title: "Desconocido",
+        type: "2019",
+        description: "",
+        coordinates: [-0.04206611076548801, 39.9963241829765],
+        details: {
+            address: "Calle del Angel, 9",
+            category: "Venta a la porta",
+            status: "",
+            contact: "",
+            notes: ""
+        },
+        icon: "",
+        markerImage: "./images/VALP_puntatore.png",
+        markerSize: 40,
+        images: [
+            "./images/12_Desconocido_Angel_01.jpeg"
+                   ]
+    },
+    {
+        id: 13,
+        title: "Desconocido",
+        type: "2017",
+        description: "",
+        coordinates: [-0.04087, 39.99123],
+        details: {
+            address: "Calle de Jovellanos, 17",
+            category: "Venta a la porta",
+            status: "",
+            contact: "",
+            notes: ""
+        },
+        icon: "",
+        markerImage: "./images/VALP_puntatore.png",
+        markerSize: 40,
+        images: [
+            "./images/13_Desconocido_Jovellanos_01.jpeg"
+                   ]
+    },
+    {
+        id: 14,
+        title: "Desconocido",
+        type: "2021",
+        description: "",
+        coordinates: [-0.03623, 39.99182],
+        details: {
+            address: "Calle San Roque, 42",
+            category: "Venta a la porta",
+            status: "",
+            contact: "",
+            notes: ""
+        },
+        icon: "",
+        markerImage: "./images/VALP_puntatore.png",
+        markerSize: 40,
+        images: [
+            "./images/14_Desconocido_San_Roque_42_01.jpg",
+            "./images/14_Desconocido_San_Roque_42_02.jpg"
                    ]
     }
 ];
