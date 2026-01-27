@@ -692,6 +692,7 @@ const mapConfig = {
     minZoom: 10,
     maxZoom: 18,
     style: 'mapbox://styles/vincpatruno/cjz2d38ip0f251ck40ow9t2wz'
+    
 };
 
 // Variabili globali
@@ -711,7 +712,9 @@ function initMap() {
         center: mapConfig.center,
         zoom: mapConfig.zoom,
         minZoom: mapConfig.minZoom,
-        maxZoom: mapConfig.maxZoom
+        maxZoom: mapConfig.maxZoom,
+
+
     });
     
     // Handler unificato per il resize della mappa
@@ -731,6 +734,11 @@ function initMap() {
 
     // Aggiungi i controlli di navigazione
     map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+    
+    // Aggiungi l'attribuzione obbligatoria in basso a destra
+    map.addControl(new mapboxgl.AttributionControl({
+        compact: false
+    }), 'bottom-right');
     
     // Inizializza il clustering dei marker
     initializeClustering();
