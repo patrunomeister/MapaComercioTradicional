@@ -100,6 +100,18 @@ body {
     flex-shrink: 0;
 }
 
+.sidebar-left {
+    order: 0;
+}
+
+.sidebar-right {
+    order: 2;
+}
+
+.map-container {
+    order: 1;
+}
+
 .sidebar-tabs {
     display: flex;
     border-bottom: 1px solid #ddd;
@@ -661,6 +673,11 @@ body {
         position: relative;
         height: auto;
         max-height: 50vh;
+        display: none;
+    }
+
+    .tab-content.active {
+        display: block;
     }
 
     .image-gallery {

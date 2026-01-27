@@ -842,9 +842,12 @@ function initMap() {
 function handleTabSwitch(event) {
     const tabId = event.currentTarget.dataset.tab;
     
-    // Rimuovi la classe 'active' da tutti i pulsanti e contenuti
-    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+    // Determina quale sidebar contiene il pulsante cliccato
+    const sidebar = event.currentTarget.closest('.sidebar-left') ? '.sidebar-left' : '.sidebar-right';
+    
+    // Rimuovi la classe 'active' solo dai pulsanti e contenuti della sidebar corrente
+    document.querySelectorAll(`${sidebar} .tab-button`).forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll(`${sidebar} .tab-content`).forEach(content => content.classList.remove('active'));
     
     // Aggiungi la classe 'active' al pulsante e al contenuto selezionato
     event.currentTarget.classList.add('active');
@@ -1013,13 +1016,50 @@ function updateClusterMarkers() {
 
 // Funzione helper per attivare una tab
 function activateTab(tabId) {
-    // Rimuovi la classe 'active' da tutti i pulsanti e contenuti
-    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-    
-    // Aggiungi la classe 'active' al pulsante e al contenuto selezionato
-    document.querySelector(`.tab-button[data-tab="${tabId}"]`).classList.add('active');
-    document.getElementById(`${tabId}Content`).classList.add('active');
+    // Per il tab 'list', attiva solo nella sidebar sinistra
+    if (tabId === 'list') {
+        document.querySelectorAll('.sidebar-left .tab-button').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.sidebar-left .tab-content').forEach(content => content.classList.remove('active'));
+        
+        const btn = document.querySelector(`.sidebar-left .tab-button[data-tab="list"]`);
+        const content = document.getElementById(`${tabId}Content`);
+        if (btn) btn.classList.add('active');
+        if (content) content.classList.add('active');
+    } else {
+        // Per 'description' e 'images', attiva solo nella sidebar destra
+        console.log('activateTab: tabId=', tabId);
+        const rightSidebar = document.querySelector('.sidebar-right');
+        console.log('sidebar-right trovata:', rightSidebar);
+        
+        if (rightSidebar) {
+            const computed = window.getComputedStyle(rightSidebar);
+            console.log('sidebar-right display:', computed.display, 'visibility:', computed.visibility, 'opacity:', computed.opacity);
+        }
+        
+        const tabsContainer = document.querySelector('.sidebar-right .sidebar-tabs');
+        console.log('sidebar-tabs trovato:', tabsContainer);
+        if (tabsContainer) {
+            const computed = window.getComputedStyle(tabsContainer);
+            console.log('sidebar-tabs display:', computed.display, 'visibility:', computed.visibility);
+        }
+        
+        const allButtons = document.querySelectorAll('.sidebar-right .tab-button');
+        console.log('tab-button nella sidebar-right trovati:', allButtons.length, allButtons);
+        
+        document.querySelectorAll('.sidebar-right .tab-button').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.sidebar-right .tab-content').forEach(content => content.classList.remove('active'));
+        
+        const btn = document.querySelector(`.sidebar-right .tab-button[data-tab="${tabId}"]`);
+        const content = document.getElementById(`${tabId}Content`);
+        console.log('btn trovato:', btn, 'content trovato:', content);
+        
+        if (btn) {
+            btn.classList.add('active');
+            const computed = window.getComputedStyle(btn);
+            console.log('tab-button dopo add active - display:', computed.display);
+        }
+        if (content) content.classList.add('active');
+    }
 }
 
 // Popola la lista dei punti di interesse nella sidebar
@@ -1068,7 +1108,12 @@ function populateLocationList() {
 function selectLocation(locationId) {
     currentLocation = locations.find(loc => loc.id === locationId);
     
-    if (!currentLocation) return;
+    if (!currentLocation) {
+        console.warn(`Location con ID ${locationId} non trovata`);
+        return;
+    }
+    
+    console.log('selectLocation chiamato per:', currentLocation.title);
     
     // Aggiorna la classe attiva nella lista
     document.querySelectorAll('.location-item').forEach(item => {
@@ -1082,9 +1127,11 @@ function selectLocation(locationId) {
     }
     
     // Aggiorna il contenuto della tab "Descrizione"
+    console.log('Aggiornando tab descrizione...');
     updateDescriptionTab();
     
     // Aggiorna il contenuto della tab "Immagini"
+    console.log('Aggiornando tab immagini...');
     updateImagesTab();
 }
 
@@ -1105,6 +1152,8 @@ function handleListItemClick(locationId) {
     const location = locations.find(loc => loc.id === locationId);
     if (!location) return;
 
+    console.log('handleListItemClick per:', location.title);
+
     // 1. Seleziona il punto (aggiorna sidebar)
     selectLocation(locationId);
 
@@ -1117,15 +1166,13 @@ function handleListItemClick(locationId) {
 
     // 3. Apri il popup
     openPopup(location);
-    // On mobile, switch to the description tab but keep the sidebar visible so the list/tabs remain accessible.
-    try {
-        if (window.innerWidth <= 768) {
-            activateTab('description');
-            // give map a moment to animate and then ensure correct sizing
-            if (map && map.resize) setTimeout(() => map.resize(), 250);
-        }
-    } catch (e) {
-        console.warn(e);
+    
+    // 4. Attiva il tab descrizione nella sidebar destra (sia desktop che mobile)
+    activateTab('description');
+    
+    // give map a moment to animate and then ensure correct sizing
+    if (map && map.resize) {
+        setTimeout(() => map.resize(), 250);
     }
 }
 
@@ -1163,6 +1210,13 @@ function updateDescriptionTab() {
     const detailType = document.getElementById('detailType');
     const detailBody = document.getElementById('detailBody');
     
+    console.log('updateDescriptionTab: detailTitle=', detailTitle, 'detailType=', detailType, 'detailBody=', detailBody);
+    
+    if (!detailTitle || !detailType || !detailBody) {
+        console.error('Elementi della sidebar destra non trovati!');
+        return;
+    }
+    
     if (!currentLocation) {
         detailTitle.textContent = "Seleziona un Punto";
         detailType.textContent = "Nessun punto selezionato";
@@ -1175,6 +1229,7 @@ function updateDescriptionTab() {
         return;
     }
     
+    console.log('Aggiornamento descrizione per:', currentLocation.title);
     detailTitle.textContent = currentLocation.title;
     detailType.textContent = currentLocation.type;
     
@@ -1209,9 +1264,16 @@ function updateDescriptionTab() {
 // Aggiorna il contenuto della tab "Immagini"
 function updateImagesTab() {
     const imagesContent = document.getElementById('imagesContent');
-    const imageGallery = document.getElementById('imageGallery');
+    
+    console.log('updateImagesTab: imagesContent=', imagesContent);
+    
+    if (!imagesContent) {
+        console.error('Element #imagesContent non trovato');
+        return;
+    }
     
     if (!currentLocation || !currentLocation.images || currentLocation.images.length === 0) {
+        console.log('Nessuna immagine disponibile');
         imagesContent.innerHTML = `
             <div class="empty-state">
                 <i class="fas fa-camera"></i>
@@ -1220,6 +1282,8 @@ function updateImagesTab() {
         `;
         return;
     }
+    
+    console.log('Aggiornamento immagini per:', currentLocation.title, '- numero immagini:', currentLocation.images.length);
     // Se tra le images c'è un link YouTube, embeddalo prima delle immagini
     const ytIdFromUrl = (url) => {
         if (!url) return null;
