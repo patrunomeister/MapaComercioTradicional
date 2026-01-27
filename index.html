@@ -50,27 +50,50 @@
             </div>
         </div>
         
-        <!-- Sidebar Unificata con Tab -->
-        <aside class="sidebar">
+        <!-- Sidebar Sinistra: Solo Tiendas -->
+        <aside class="sidebar sidebar-left">
             
-            <!-- Tab Buttons -->
-            <div class="sidebar-tabs">
-                <button class="tab-button" data-tab="description">
-                    <i class="fas fa-info-circle"></i> Descripción
-                </button>
-                <button class="tab-button" data-tab="images">
-                    <i class="fas fa-image"></i> Imágenes
-                </button>
+            <!-- Tab Button per Tiendas -->
+            <div class="sidebar-tabs tabs-left">
                 <button class="tab-button active" data-tab="list">
                     <i class="fas fa-list"></i> Tiendas
                 </button>
             </div>
             
-            <!-- Tab Content Wrapper -->
+            <!-- Tab Content Wrapper Sinistra -->
+            <div class="sidebar-content-wrapper">
+                <!-- Tab 3: Lista dei Punti di Interesse -->
+                <div id="listContent" class="tab-content active">
+                    <div class="sidebar-header" style="display: block; background: #f5f5f5; color: var(--dark-grey); border-bottom: 1px solid #ddd;">
+                        <h2 style="font-size: 16px;">Lista Punti</h2>
+                        <p id="locationCount" style="font-size: 12px;"></p>
+                    </div>
+                    <div id="locationList" class="sidebar-content">
+                        <!-- La lista dei punti verrà iniettata qui da JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+        </aside>
+        
+        <!-- Sidebar Destra: Descripción e Imágenes -->
+        <aside class="sidebar sidebar-right">
+            
+            <!-- Tab Buttons -->
+            <div class="sidebar-tabs tabs-right">
+                <button class="tab-button active" data-tab="description">
+                    <i class="fas fa-info-circle"></i> Descripción
+                </button>
+                <button class="tab-button" data-tab="images">
+                    <i class="fas fa-image"></i> Imágenes
+                </button>
+            </div>
+            
+            <!-- Tab Content Wrapper Destra -->
             <div class="sidebar-content-wrapper">
                 
                 <!-- Tab 1: Descrizione del Punto (Detail Card) -->
-                <div id="descriptionContent" class="tab-content">
+                <div id="descriptionContent" class="tab-content active">
                     <div id="detailCard" class="detail-card">
                         <div id="detailHeader" class="detail-header">
                             <div>
@@ -96,17 +119,6 @@
                     </div>
                     <div id="imageGallery" class="image-gallery">
                         <!-- Le immagini verranno iniettate qui da JavaScript -->
-                    </div>
-                </div>
-                
-                <!-- Tab 3: Lista dei Punti di Interesse -->
-                <div id="listContent" class="tab-content active">
-                    <div class="sidebar-header" style="display: block; background: #f5f5f5; color: var(--dark-grey); border-bottom: 1px solid #ddd;">
-                        <h2 style="font-size: 16px;">Lista Punti</h2>
-                        <p id="locationCount" style="font-size: 12px;"></p>
-                    </div>
-                    <div id="locationList" class="sidebar-content">
-                        <!-- La lista dei punti verrà iniettata qui da JavaScript -->
                     </div>
                 </div>
                 
