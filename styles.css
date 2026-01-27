@@ -117,6 +117,10 @@ body {
     display: flex;
     border-bottom: 1px solid #ddd;
     flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 100;
 }
 
 .tab-button {

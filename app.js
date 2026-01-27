@@ -1153,6 +1153,10 @@ function handleListItemClick(locationId) {
     if (!location) return;
 
     console.log('handleListItemClick per:', location.title);
+    
+    // Debug: Check if tabs-left still exists
+    const tabsLeft = document.querySelector('.sidebar-tabs.tabs-left');
+    console.log('tabs-left esiste:', tabsLeft, 'visibile:', tabsLeft ? window.getComputedStyle(tabsLeft).display : 'N/A');
 
     // 1. Seleziona il punto (aggiorna sidebar)
     selectLocation(locationId);
