@@ -120,7 +120,7 @@ body {
     position: sticky;
     top: 0;
     background: white;
-    z-index: 100;
+    z-index: 200;
 }
 
 .tab-button {
@@ -156,6 +156,7 @@ body {
     flex: 1;
     overflow: hidden;
     position: relative;
+    padding-top: 56px; /* lascia spazio per le tab fissate in alto */
 }
 
 .tab-content {
@@ -423,10 +424,17 @@ body {
 .marker:hover {
     transform: scale(1.1);
 }
+
+/* Highlight style when a marker is selected from the sidebar list */
+.marker-highlight {
+    filter: drop-shadow(0 8px 18px rgba(0,0,0,0.35)) !important;
+    z-index: 1000 !important;
+    transition: filter 180ms ease;
+}
     
 .marker.type-1 {
     background-color: var(--marker-red);
-}
+} 
     
 .marker.type-2 {
     background-color: var(--marker-blue);
@@ -445,7 +453,8 @@ body {
     cursor: pointer;
     border: none;
     /*box-shadow: 0 2px 4px rgba(0,0,0,0.2);*/
-}
+    transition: width 180ms ease, height 180ms ease, filter 180ms ease;
+} 
 
 /* Stili per i marker cluster */
 .cluster-marker {
@@ -682,6 +691,14 @@ body {
 
     .sidebar-tabs {
         flex-wrap: wrap;
+    }
+    .sidebar-tabs {
+        top: 0; /* mobile: tabs stay at top of sidebar */
+    }
+
+    /* reduce reserved top-space on mobile when tab bar wraps */
+    .sidebar-content-wrapper {
+        padding-top: 48px;
     }
 
     .tab-button {

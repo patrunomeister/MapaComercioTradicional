@@ -701,6 +701,45 @@ let markers = [];
 let currentLocation = null;
 let currentPopup = null; // Aggiunto per tracciare il popup aperto
 let supercluster = null; // Per la gestione del clustering
+let currentHighlightedMarker = null; // elemento marker attualmente evidenziato
+let highlightedLocationId = null; // ID della location attualmente evidenziata
+
+// Evidenzia un marker corrispondente all'ID location senza aprire popup
+function highlightMarker(locationId) {
+    highlightedLocationId = locationId;
+    
+    // Rimuovi evidenziazione precedente
+    try {
+        if (currentHighlightedMarker && currentHighlightedMarker.markerElement) {
+            const el = currentHighlightedMarker.markerElement;
+            el.classList.remove('marker-highlight');
+            // Ripristina dimensioni originali
+            const size = currentHighlightedMarker.location ? currentHighlightedMarker.location.markerSize || 40 : 40;
+            el.style.width = `${size}px`;
+            el.style.height = `${size}px`;
+        }
+    } catch (e) { console.warn('Errore rimuovendo evidenziazione precedente', e); }
+
+    // Trova il marker corrispondente
+    const entry = markers.find(m => m.location && m.location.id === locationId);
+    if (!entry || !entry.markerElement) {
+        console.warn('Marker elemento non trovato per location ID:', locationId);
+        return;
+    }
+
+    // Applica classe di evidenziazione e aumenta le dimensioni
+    const el = entry.markerElement;
+    const size = entry.location.markerSize || 40;
+    const highlightedSize = Math.round(size * 1.3); // 30% più grande
+    
+    el.classList.add('marker-highlight');
+    el.style.width = `${highlightedSize}px`;
+    el.style.height = `${highlightedSize}px`;
+    
+    // Mantieni riferimento per poterla rimuovere in seguito
+    currentHighlightedMarker = entry;
+}
+
 
 // Inizializzazione della mappa
 function initMap() {
@@ -886,11 +925,13 @@ function addMarkers() {
                 duration: 400
             });
 
-            handleMarkerClick(location.id);
-            openPopup(location);
+            // Seleziona il punto e evidenzia il marker
+            selectLocation(location.id);
+            highlightMarker(location.id);
+            activateTab('description');
         });
 
-        markers.push({ marker, location });
+        markers.push({ marker, location, markerElement });
     });
 }
 
@@ -1009,14 +1050,23 @@ function updateClusterMarkers() {
                             duration: 400
                         });
 
-                        handleMarkerClick(location.id);
-                        openPopup(location);
+                        // Seleziona il punto e evidenzia il marker
+                        selectLocation(location.id);
+                        highlightMarker(location.id);
+                        activateTab('description');
                     });
 
-                    markers.push({ marker, location });
+                    markers.push({ marker, location, markerElement });
                 }
             }, delayMs);
         });
+
+        // Riapplica evidenziazione se è stata impostata
+        if (highlightedLocationId) {
+            setTimeout(() => {
+                highlightMarker(highlightedLocationId);
+            }, 100);
+        }
     } catch (error) {
         console.error('Errore durante l\'aggiornamento dei cluster:', error);
     }
@@ -1176,8 +1226,8 @@ function handleListItemClick(locationId) {
         duration: 1000
     });
 
-    // 3. Apri il popup
-    openPopup(location);
+    // 3. Evidenzia il marker corrispondente invece di aprire il popup
+    highlightMarker(locationId);
     
     // 4. Attiva il tab descrizione nella sidebar destra (sia desktop che mobile)
     activateTab('description');
