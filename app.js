@@ -681,6 +681,39 @@ const locations = [
         images: [
             "./images/30_Agustín_01.jpg"
                    ]
+    },
+    {
+        id: 31,
+        title: "Discos Medicinales, Música",
+        type: "1983–2019",
+        description: "<b>Fundador:</b> José Luis Roig<br> \
+        <b>Tipo de comercio:</b> Tienda especializada en música (vinilos, CDs y material de coleccionismo)<br><br> \
+        <b>Descripción:</b><br> \
+        Fundada en 1983, Discos Medicinales se convirtió en un referente cultural y un verdadero santuario para \
+        los melómanos de Castellón. Su catálogo, amplio y cuidadosamente seleccionado, situó la tienda entre \
+        las más apreciadas por coleccionistas y aficionados a la música  en la ciudad.<br><br>\
+        <b>Importancia histórica:</b> <br> \
+        Durante más de tres décadas, la tienda fue un punto de encuentro para la comunidad musical local, \
+        contribuyendo de forma decisiva a la memoria cultural y social de Castellón.<br>\
+        Bajo la dirección de José Luis Roig, el establecimiento defendió un modelo de comercio basado en \
+        la calidad, el conocimiento especializado y la atención personalizada, resistiendo a la competencia de \
+        las grandes cadenas y al auge del consumo digital.<br><br>\
+        <b>Cierre:</b><br> \
+        La tienda cerró en el verano de 2019",
+        coordinates: [-0.038213, 39.985078],
+        details: {
+            address: "C/Pascual Tirado, 1",
+            category: "Tiendas históricas",
+            status: "",
+            contact: "",
+            notes: ""
+        },
+        icon: "",
+        markerImage: "./images/Históricas_puntatore.png",
+        markerSize: 40,
+        images: [
+            "./images/03_Discos_Medicinales_01_2019.jpg"
+                   ]
     }
 ];
 
@@ -782,8 +815,10 @@ function initMap() {
     // Inizializza il clustering dei marker
     initializeClustering();
     
-    // Popola la lista nella sidebar
+    // Popola la lista nella sidebar (solo 'Venta a la porta')
     populateLocationList();
+    // Popola la lista delle Tiendas históricas nella sidebar sinistra
+    populateHistoricalList();
     
     // Aggiungi event listener ai pulsanti di controllo
     document.getElementById('zoomIn').addEventListener('click', () => {
@@ -875,7 +910,10 @@ function initMap() {
     
     // Seleziona il primo punto di default e attiva la tab "Lista"
     if (locations.length > 0) {
-        selectLocation(locations[0].id);
+        // Se esiste almeno una location con category 'Venta a la porta', selezionala per default
+        const defaultPorta = locations.find(loc => loc.details && loc.details.category === 'Venta a la porta');
+        if (defaultPorta) selectLocation(defaultPorta.id);
+        else selectLocation(locations[0].id);
         // Assicurati che la tab "Lista" sia attiva all'avvio (già fatto in HTML, ma per sicurezza)
         activateTab('list');
     } else {
@@ -903,36 +941,38 @@ function handleTabSwitch(event) {
 
 // Funzione fallback: aggiungi marker direttamente senza clustering
 function addMarkers() {
-    console.log('Usando fallback addMarkers (senza clustering)');
+    // Fallback: crea marker per ogni location (senza clustering)
     locations.forEach(location => {
-        const markerElement = document.createElement('img');
-        markerElement.src = location.markerImage;
-        markerElement.alt = location.title || 'marker';
-        markerElement.className = 'marker-img';
-        const size = location.markerSize || 40;
-        markerElement.style.width = `${size}px`;
-        markerElement.style.height = `${size}px`;
-
-        const marker = new mapboxgl.Marker(markerElement)
-            .setLngLat(location.coordinates)
-            .addTo(map);
-
-        markerElement.addEventListener('click', () => {
-            // Centra la mappa sul marker e applica uno zoom per evidenziare il punto
-            map.easeTo({
-                center: location.coordinates,
-                zoom: 16,
-                duration: 400
-            });
-
-            // Seleziona il punto e evidenzia il marker
-            selectLocation(location.id);
-            highlightMarker(location.id);
-            activateTab('description');
-        });
-
-        markers.push({ marker, location, markerElement });
+        createMarkerForLocation(location, location.coordinates);
     });
+}
+
+// Helper per creare un marker immagine per una location e aggiungerlo alla mappa
+function createMarkerForLocation(location, lngLat) {
+    const markerElement = document.createElement('img');
+    markerElement.src = location.markerImage;
+    markerElement.alt = location.title || 'marker';
+    markerElement.className = 'marker-img';
+    const size = location.markerSize || 40;
+    markerElement.style.width = `${size}px`;
+    markerElement.style.height = `${size}px`;
+
+    // Piccola animazione di apparizione
+    markerElement.style.animation = 'markerPop 0.4s ease-out';
+
+    const marker = new mapboxgl.Marker(markerElement)
+        .setLngLat(lngLat)
+        .addTo(map);
+
+    markerElement.addEventListener('click', () => {
+        map.easeTo({ center: lngLat, zoom: 16, duration: 400 });
+        selectLocation(location.id);
+        highlightMarker(location.id);
+        activateTab('description');
+    });
+
+    markers.push({ marker, location, markerElement });
+    return { marker, markerElement };
 }
 
 // Inizializza il clustering usando Supercluster
@@ -944,7 +984,7 @@ function initializeClustering() {
         return;
     }
 
-    console.log('Supercluster disponibile, inizializzazione clustering...');
+    // Supercluster inizializzato
 
     // Prepara i dati per il clustering: punti con proprietà location
     const points = locations.map((loc, idx) => ({
@@ -1020,7 +1060,7 @@ function updateClusterMarkers() {
 
                     markers.push({ marker, location: null, isCluster: true });
                 } else {
-                    // È un singolo marker: mostra l'immagine del marker
+                    // Singolo marker: crea tramite helper
                     const locationIdx = properties.idx;
                     const location = locations[locationIdx];
                     if (!location) {
@@ -1028,35 +1068,7 @@ function updateClusterMarkers() {
                         return;
                     }
 
-                    const markerElement = document.createElement('img');
-                    markerElement.src = location.markerImage;
-                    markerElement.alt = location.title || 'marker';
-                    markerElement.className = 'marker-img';
-                    const size = location.markerSize || 40;
-                    markerElement.style.width = `${size}px`;
-                    markerElement.style.height = `${size}px`;
-                    // Aggiungi animazione di apparizione
-                    markerElement.style.animation = 'markerPop 0.4s ease-out';
-
-                    const marker = new mapboxgl.Marker(markerElement)
-                        .setLngLat([lng, lat])
-                        .addTo(map);
-
-                    markerElement.addEventListener('click', () => {
-                        // Centra la mappa sul marker e applica uno zoom per evidenziare il punto
-                        map.easeTo({
-                            center: [lng, lat],
-                            zoom: 16,
-                            duration: 400
-                        });
-
-                        // Seleziona il punto e evidenzia il marker
-                        selectLocation(location.id);
-                        highlightMarker(location.id);
-                        activateTab('description');
-                    });
-
-                    markers.push({ marker, location, markerElement });
+                    createMarkerForLocation(location, [lng, lat]);
                 }
             }, delayMs);
         });
@@ -1074,48 +1086,25 @@ function updateClusterMarkers() {
 
 // Funzione helper per attivare una tab
 function activateTab(tabId) {
-    // Per il tab 'list', attiva solo nella sidebar sinistra
-    if (tabId === 'list') {
+    // Per i tab 'list' e 'historical', attiva solo nella sidebar sinistra
+    if (tabId === 'list' || tabId === 'historical') {
         document.querySelectorAll('.sidebar-left .tab-button').forEach(btn => btn.classList.remove('active'));
         document.querySelectorAll('.sidebar-left .tab-content').forEach(content => content.classList.remove('active'));
         
-        const btn = document.querySelector(`.sidebar-left .tab-button[data-tab="list"]`);
+        const btn = document.querySelector(`.sidebar-left .tab-button[data-tab="${tabId}"]`);
         const content = document.getElementById(`${tabId}Content`);
         if (btn) btn.classList.add('active');
         if (content) content.classList.add('active');
     } else {
         // Per 'description' e 'images', attiva solo nella sidebar destra
-        console.log('activateTab: tabId=', tabId);
         const rightSidebar = document.querySelector('.sidebar-right');
-        console.log('sidebar-right trovata:', rightSidebar);
-        
-        if (rightSidebar) {
-            const computed = window.getComputedStyle(rightSidebar);
-            console.log('sidebar-right display:', computed.display, 'visibility:', computed.visibility, 'opacity:', computed.opacity);
-        }
-        
-        const tabsContainer = document.querySelector('.sidebar-right .sidebar-tabs');
-        console.log('sidebar-tabs trovato:', tabsContainer);
-        if (tabsContainer) {
-            const computed = window.getComputedStyle(tabsContainer);
-            console.log('sidebar-tabs display:', computed.display, 'visibility:', computed.visibility);
-        }
-        
-        const allButtons = document.querySelectorAll('.sidebar-right .tab-button');
-        console.log('tab-button nella sidebar-right trovati:', allButtons.length, allButtons);
         
         document.querySelectorAll('.sidebar-right .tab-button').forEach(btn => btn.classList.remove('active'));
         document.querySelectorAll('.sidebar-right .tab-content').forEach(content => content.classList.remove('active'));
         
         const btn = document.querySelector(`.sidebar-right .tab-button[data-tab="${tabId}"]`);
         const content = document.getElementById(`${tabId}Content`);
-        console.log('btn trovato:', btn, 'content trovato:', content);
-        
-        if (btn) {
-            btn.classList.add('active');
-            const computed = window.getComputedStyle(btn);
-            console.log('tab-button dopo add active - display:', computed.display);
-        }
+        if (btn) btn.classList.add('active');
         if (content) content.classList.add('active');
     }
 }
@@ -1124,20 +1113,22 @@ function activateTab(tabId) {
 function populateLocationList() {
     const locationList = document.getElementById('locationList');
     const locationCount = document.getElementById('locationCount');
-    
-    if (locations.length === 0) {
+    // Filtra solo le location con category 'Venta a la porta'
+    const items = locations.filter(loc => loc.details && loc.details.category === 'Venta a la porta');
+
+    if (items.length === 0) {
         locationList.innerHTML = '<div class="empty-state"><i class="fas fa-map-marker-alt"></i><p>Nessun punto di interesse trovato</p></div>';
         locationCount.textContent = '0 punti';
         return;
     }
-    
+
     locationList.innerHTML = '';
-    
-    locations.forEach(location => {
+
+    items.forEach(location => {
         const item = document.createElement('div');
         item.className = 'location-item';
         item.id = `location-${location.id}`;
-        
+
         item.innerHTML = `
             <div class="location-icon">
                 <img src="${location.markerImage}" alt="${location.title}" class="location-marker-img">
@@ -1147,15 +1138,55 @@ function populateLocationList() {
                 <p>${location.type}</p>
             </div>
         `;
-        
+
         item.addEventListener('click', () => {
             // Al click sulla lista, apri il popup e centra la mappa
             handleListItemClick(location.id);
         });
         locationList.appendChild(item);
     });
-    
-    locationCount.textContent = `${locations.length} punti`;
+
+    locationCount.textContent = `${items.length} punti`;
+}
+
+// Popola la lista delle Tiendas históricas nella sidebar sinistra
+function populateHistoricalList() {
+    const historicalList = document.getElementById('historicalList');
+    const historicalCount = document.getElementById('historicalCount');
+
+    if (!historicalList || !historicalCount) return;
+
+    const items = locations.filter(loc => loc.details && loc.details.category === 'Tiendas históricas');
+
+    if (items.length === 0) {
+        historicalList.innerHTML = '<div class="empty-state"><i class="fas fa-store"></i><p>Nessuna tienda histórica trovata</p></div>';
+        historicalCount.textContent = '0 punti';
+        return;
+    }
+
+    historicalList.innerHTML = '';
+    items.forEach(location => {
+        const item = document.createElement('div');
+        item.className = 'location-item';
+        item.id = `historical-location-${location.id}`;
+
+        item.innerHTML = `
+            <div class="location-icon">
+                <img src="${location.markerImage}" alt="${location.title}" class="location-marker-img">
+            </div>
+            <div class="location-info">
+                <h3>${location.title}</h3>
+                <p>${location.type}</p>
+            </div>
+        `;
+
+        item.addEventListener('click', () => {
+            handleListItemClick(location.id);
+        });
+        historicalList.appendChild(item);
+    });
+
+    historicalCount.textContent = `${items.length} punti`;
 }
 
 // Seleziona un punto di interesse
@@ -1171,13 +1202,20 @@ function selectLocation(locationId) {
         return;
     }
     
-    console.log('selectLocation chiamato per:', currentLocation.title);
+    // Attiva automaticamente il tab corretto nella sidebar sinistra in base alla categoria
+    if (currentLocation.details && currentLocation.details.category) {
+        if (currentLocation.details.category === 'Venta a la porta') {
+            activateTab('list');
+        } else if (currentLocation.details.category === 'Tiendas históricas') {
+            activateTab('historical');
+        }
+    }
     
     // Aggiorna la classe attiva nella lista
     document.querySelectorAll('.location-item').forEach(item => {
         item.classList.remove('active');
     });
-    const selectedItem = document.getElementById(`location-${locationId}`);
+    const selectedItem = document.getElementById(`location-${locationId}`) || document.getElementById(`historical-location-${locationId}`);
     if (selectedItem) {
         selectedItem.classList.add('active');
         // Scrolla l'elemento selezionato in vista nella lista
@@ -1185,11 +1223,9 @@ function selectLocation(locationId) {
     }
     
     // Aggiorna il contenuto della tab "Descrizione"
-    console.log('Aggiornando tab descrizione...');
     updateDescriptionTab();
     
     // Aggiorna il contenuto della tab "Immagini"
-    console.log('Aggiornando tab immagini...');
     updateImagesTab();
 }
 
@@ -1210,11 +1246,7 @@ function handleListItemClick(locationId) {
     const location = locations.find(loc => loc.id === locationId);
     if (!location) return;
 
-    console.log('handleListItemClick per:', location.title);
-    
-    // Debug: Check if tabs-left still exists
-    const tabsLeft = document.querySelector('.sidebar-tabs.tabs-left');
-    console.log('tabs-left esiste:', tabsLeft, 'visibile:', tabsLeft ? window.getComputedStyle(tabsLeft).display : 'N/A');
+    // handleListItemClick invoked
 
     // 1. Seleziona il punto (aggiorna sidebar)
     selectLocation(locationId);
@@ -1272,7 +1304,7 @@ function updateDescriptionTab() {
     const detailType = document.getElementById('detailType');
     const detailBody = document.getElementById('detailBody');
     
-    console.log('updateDescriptionTab: detailTitle=', detailTitle, 'detailType=', detailType, 'detailBody=', detailBody);
+    // updateDescriptionTab called
     
     if (!detailTitle || !detailType || !detailBody) {
         console.error('Elementi della sidebar destra non trovati!');
@@ -1291,7 +1323,7 @@ function updateDescriptionTab() {
         return;
     }
     
-    console.log('Aggiornamento descrizione per:', currentLocation.title);
+    // Aggiornamento descrizione per: (hidden)
     detailTitle.textContent = currentLocation.title;
     detailType.textContent = currentLocation.type;
     
@@ -1327,7 +1359,7 @@ function updateDescriptionTab() {
 function updateImagesTab() {
     const imagesContent = document.getElementById('imagesContent');
     
-    console.log('updateImagesTab: imagesContent=', imagesContent);
+    // updateImagesTab called
     
     if (!imagesContent) {
         console.error('Element #imagesContent non trovato');
@@ -1335,7 +1367,7 @@ function updateImagesTab() {
     }
     
     if (!currentLocation || !currentLocation.images || currentLocation.images.length === 0) {
-        console.log('Nessuna immagine disponibile');
+        // Nessuna immagine disponibile
         imagesContent.innerHTML = `
             <div class="empty-state">
                 <i class="fas fa-camera"></i>
@@ -1345,7 +1377,7 @@ function updateImagesTab() {
         return;
     }
     
-    console.log('Aggiornamento immagini per:', currentLocation.title, '- numero immagini:', currentLocation.images.length);
+    // Aggiornamento immagini per currentLocation
     // Se tra le images c'è un link YouTube, embeddalo prima delle immagini
     const ytIdFromUrl = (url) => {
         if (!url) return null;

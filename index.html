@@ -56,7 +56,12 @@
             <!-- Tab Button per Tiendas -->
             <div class="sidebar-tabs tabs-left">
                 <button class="tab-button active" data-tab="list">
-                    <i class="fas fa-list"></i> Tiendas
+                    <i class="fas fa-list"></i> Porta
+                </button>
+                
+                <!-- Nuovo tab per Tiendas históricas -->
+                <button class="tab-button" data-tab="historical">
+                    <i class="fas fa-landmark"></i> Históricas
                 </button>
             </div>
             
@@ -65,11 +70,22 @@
                 <!-- Tab 3: Lista dei Punti di Interesse -->
                 <div id="listContent" class="tab-content active">
                     <div class="sidebar-header" style="display: block; background: #f5f5f5; color: var(--dark-grey); border-bottom: 1px solid #ddd;">
-                        <h2 style="font-size: 16px;">Lista Punti</h2>
+                        <h2 style="font-size: 16px;">Venta a la porta</h2>
                         <p id="locationCount" style="font-size: 12px;"></p>
                     </div>
                     <div id="locationList" class="sidebar-content">
                         <!-- La lista dei punti verrà iniettata qui da JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Contenuto per il tab 'Históricas' (solo punti con category: Tiendas históricas) -->
+                <div id="historicalContent" class="tab-content">
+                    <div class="sidebar-header" style="display: block; background: #f5f5f5; color: var(--dark-grey); border-bottom: 1px solid #ddd;">
+                        <h2 style="font-size: 16px;">Tiendas históricas</h2>
+                        <p id="historicalCount" style="font-size: 12px;"></p>
+                    </div>
+                    <div id="historicalList" class="sidebar-content">
+                        <!-- Lista storiche riempita da JavaScript -->
                     </div>
                 </div>
             </div>
