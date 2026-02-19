@@ -28,7 +28,7 @@ body {
     height: 100vh;
     width: 100vw;
     position: relative;
-    padding-bottom: 40px; /* Spazio per il footer */
+    padding-bottom: 60px; /* Add space equal to footer height */
 }
 
 .header {
