@@ -942,20 +942,17 @@ body {
     z-index: 1000; /* Ensure it is above other elements */
 }
 
-/* Adjust footer and map-container for desktop */
+/* Adjust layout to prevent footer overlap */
 @media (min-width: 769px) {
-    footer.footer {
-        position: relative; /* Ensure footer does not overlap content */
+    #app-wrapper {
+        padding-bottom: 40px; /* Add space to prevent footer overlap */
     }
 
     .map-container {
-        margin-bottom: 40px; /* Add space to prevent footer overlap */
+        margin-bottom: 0; /* Remove unnecessary margin */
     }
-}
 
-/* Ensure sidebar tabs are not covered by the header in desktop view */
-@media (min-width: 769px) {
-    .sidebar-tabs {
-        margin-top: 60px; /* Add margin to push tabs below the fixed header */
+    .sidebar {
+        margin-bottom: 0; /* Ensure sidebars extend fully */
     }
 }
