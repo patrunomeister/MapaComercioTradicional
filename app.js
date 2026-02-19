@@ -1,5 +1,7 @@
 // Dati di esempio dei punti di interesse 
 // In una applicazione reale, questi dati verrebbero caricati da un'API
+const today = "2026-02-19"; // Default date
+
 const locations = [
     {
         id: 1,
@@ -18,11 +20,11 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/01_VeN_Bou_01.jpg",
-            "./images/01_VeN_Bou_02.jpg",
-            "./images/01_VeN_Bou_03.jpg",    
-            "./images/01_VeN_Bou_04.jpg",                              
-            "./images/01_VeN_Bou_05.jpg"
+            { url: "./images/01_VeN_Bou_01.jpg", date: today },
+            { url: "./images/01_VeN_Bou_02.jpg", date: today },
+            { url: "./images/01_VeN_Bou_03.jpg", date: today },
+            { url: "./images/01_VeN_Bou_04.jpg", date: today },
+            { url: "./images/01_VeN_Bou_05.jpg", date: today }
         ]
     },
     {
@@ -55,9 +57,9 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/02_Fernando_01.jpg",
-            "./images/02_Fernando_02.jpg"
-          ]
+            { url: "./images/02_Fernando_01.jpg", date: today },
+            { url: "./images/02_Fernando_02.jpg", date: today }
+        ]
     },
     {
         id: 3,
@@ -76,8 +78,8 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/03_María_Teresa_01.jpg"
-                   ] // Nessuna immagine aggiuntiva per questo esempio
+            { url: "./images/03_María_Teresa_01.jpg", date: today }
+        ]
     },
     {
         id: 4,
@@ -96,8 +98,8 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/04_Francisca_01.jpeg"
-                   ]
+            { url: "./images/04_Francisca_01.jpeg", date: today }
+        ]
     },
     {
         id: 5,
@@ -116,8 +118,8 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/05_María_01.jpg"
-                   ]
+            { url: "./images/05_María_01.jpg", date: today }
+        ]
     },
     {
         id: 6,
@@ -136,8 +138,8 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/06_Desconocido_Valencia_01.jpg"
-                   ]
+            { url: "./images/06_Desconocido_Valencia_01.jpg", date: today }
+        ]
     },
     {
         id: 7,
@@ -161,10 +163,10 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/07_José_Juan_01.jpg",
-            "./images/07_José_Juan_02.jpg",
-            "./images/07_José_Juan_03.jpg"
-                   ]
+            { url: "./images/07_José_Juan_01.jpg", date: today },
+            { url: "./images/07_José_Juan_02.jpg", date: today },
+            { url: "./images/07_José_Juan_03.jpg", date: today }
+        ]
     },
     {
         id: 8,
@@ -183,8 +185,8 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/08_Desconocido_S_Felix_01.jpg"
-                   ]
+            { url: "./images/08_Desconocido_S_Felix_01.jpg", date: today }
+        ]
     },
     {
         id: 9,
@@ -203,8 +205,8 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/09_Desconocida_Gobernador_01.jpg"
-                   ]
+            { url: "./images/09_Desconocida_Gobernador_01.jpg", date: today }
+        ]
     },
     {
         id: 10,
@@ -223,8 +225,8 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/10_Desconocido_San_Blas_01.jpg"
-                   ]
+            { url: "./images/10_Desconocido_San_Blas_01.jpg", date: today }
+        ]
     },
     {
         id: 11,
@@ -243,8 +245,8 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/11_Desconocido_Ximenez_01.jpg"
-                   ]
+            { url: "./images/11_Desconocido_Ximenez_01.jpg", date: today }
+        ]
     },
     {
         id: 12,
@@ -263,8 +265,8 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/12_Desconocido_Angel_01.jpeg"
-                   ]
+            { url: "./images/12_Desconocido_Angel_01.jpeg", date: today }
+        ]
     },
     {
         id: 13,
@@ -283,8 +285,8 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/13_Desconocido_Jovellanos_01.jpeg"
-                   ]
+            { url: "./images/13_Desconocido_Jovellanos_01.jpeg", date: today }
+        ]
     },
     {
         id: 14,
@@ -303,9 +305,9 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/14_Desconocido_San_Roque_42_01.jpg",
-            "./images/14_Desconocido_San_Roque_42_02.jpg"
-                   ]
+            { url: "./images/14_Desconocido_San_Roque_42_01.jpg", date: today },
+            { url: "./images/14_Desconocido_San_Roque_42_02.jpg", date: today }
+        ]
     },
     {
         id: 15,
@@ -324,10 +326,10 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/15_Amparo_01.jpg",
-            "./images/15_Amparo_02.jpg",    
-            "./images/15_Amparo_03.jpg"
-                   ]
+            { url: "./images/15_Amparo_01.jpg", date: today },
+            { url: "./images/15_Amparo_02.jpg", date: today },
+            { url: "./images/15_Amparo_03.jpg", date: today }
+        ]
     },
     {
         id: 16,
@@ -346,21 +348,21 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/16_Desconocido_Almansa_01.jpg"
-                   ]
+            { url: "./images/16_Desconocido_Almansa_01.jpg", date: today }
+        ]
     },
     {
         id: 17,
         title: "Joaquín Breva Mut",
         type: "2024",
-        description: "Joaquín, como su padre y su abuelo, se dedica a la agricultura. \
-        Produce y vende cítricos, nísperos y uvas. Con el fin de evitar la venta a bajo precio \
-        a intermediarios, optó por defender su producción de cítricos (40 hanegadas) \
-        mediante la modalidad de “venta a la porta”. Reside en una zona céntrica de Castellón y, \
-        dada la presencia de numerosos vendedores que practicaban esta misma modalidad, \
-        decidió alquilar un garaje en la calle Dr. Ferrán en 2023 y, posteriormente, \
-        trasladar su actividad en un pequeño establecimiento comercial en la cercana avenida de Lidón. \
-        [Entrevista realizada en 2024]",
+        description: "Joaquín, come su padre e su abuelo, si dedica all'agricoltura. \
+        Produce e vende cítricos, nísperos e uve. Con il fin di evitare la vendita a prezzo basso \
+        a intermediari, ha optato per difendere la sua produzione di cítrici (40 hanegadas) \
+        mediante la modalità di “venta a la porta”. Reside in una zona centrale di Castellón e, \
+        data la presenza di numerosi venditori che praticano questa stessa modalità, \
+        ha deciso di affittare un garage in calle Dr. Ferrán nel 2023 e, successivamente, \
+        trasferire la sua attività in un piccolo negozio commerciale sulla vicina avenida de Lidón. \
+        [Entrevista realizzata in 2024]",
         coordinates: [-0.033053, 39.989488],
         details: {
             address: "Avenida Virgen de Lidón, 20",
@@ -373,17 +375,17 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/17_Joaquín_01.jpg"
-                   ]
+            { url: "./images/17_Joaquín_01.jpg", date: today }
+        ]
     },
     {
         id: 18,
         title: "María Dolores (Marilo)",
         type: "2025",
-        description: "Mariló vende los cítricos que cultiva su marido Paco en la finca de la familia, \
-        de 20 anegadas (1,6 hectáreas) en la partida de La Magdalena. Pero no quiere seguir y ha \
-        puesto en venta la finca. \
-        [Entrevista realizada en 2025]",
+        description: "Mariló vende i cítrici che cultiva suo marido Paco nella finca di famiglia, \
+        di 20 anegadas (1,6 hectáreas) nella partida de La Magdalena. Ma non vuole seguir e ha \
+        messo in vendita la finca. \
+        [Entrevista realizzata in 2025]",
         coordinates: [-0.03979, 39.98905],
         details: {
             address: "Calle de les Germanies, 1",
@@ -396,9 +398,9 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/18_María_Dolores_01.jpg",
-            "./images/18_María_Dolores_02.jpg"
-                   ]
+            { url: "./images/18_María_Dolores_01.jpg", date: today },
+            { url: "./images/18_María_Dolores_02.jpg", date: today }
+        ]
     },
     {
         id: 19,
@@ -417,9 +419,9 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/19_Lucia_01.png",
-            "./images/19_Lucia_02.jpg"
-                   ]
+            { url: "./images/19_Lucia_01.png", date: today },
+            { url: "./images/19_Lucia_02.jpg", date: today }
+        ]
     },
     {
         id: 20,
@@ -446,9 +448,9 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/20_Catalina_01.jpg",
-            "./images/20_Catalina_02.jpg"
-                   ]
+            { url: "./images/20_Catalina_01.jpg", date: today },
+            { url: "./images/20_Catalina_02.jpg", date: today }
+        ]
     },
     {
         id: 21,
@@ -467,8 +469,8 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/21_Desconocido_Ximen_Perez_01.jpg"
-                   ]
+            { url: "./images/21_Desconocido_Ximen_Perez_01.jpg", date: today }
+        ]
     },
     {
         id: 22,
@@ -492,11 +494,11 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/22_Carmen_Peris_Gomez_01.jpg",    
-            "./images/22_Carmen_Peris_Gomez_02.jpg",    
-            "./images/22_Carmen_Peris_Gomez_03.jpg",
-            "./images/22_Carmen_Peris_Gomez_04.jpg"
-                   ]
+            { url: "./images/22_Carmen_Peris_Gomez_01.jpg", date: today },
+            { url: "./images/22_Carmen_Peris_Gomez_02.jpg", date: today },
+            { url: "./images/22_Carmen_Peris_Gomez_03.jpg", date: today },
+            { url: "./images/22_Carmen_Peris_Gomez_04.jpg", date: today }
+        ]
     },
     {
         id: 23,
@@ -520,9 +522,9 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/23_Rafa_01.jpg",    
-            "./images/23_Rafa_02.jpg"
-                   ]
+            { url: "./images/23_Rafa_01.jpg", date: today },
+            { url: "./images/23_Rafa_02.jpg", date: today }
+        ]
     },
     {
         id: 24,
@@ -545,8 +547,8 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/24_Juan_01.jpg"
-                   ]
+            { url: "./images/24_Juan_01.jpg", date: today }
+        ]
     },
     {
         id: 25,
@@ -566,10 +568,10 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/25_Rafa_01.jpg",
-            "./images/25_Rafa_02.jpg",
-            "./images/25_Rafa_03.jpg"
-                   ]
+            { url: "./images/25_Rafa_01.jpg", date: today },
+            { url: "./images/25_Rafa_02.jpg", date: today },
+            { url: "./images/25_Rafa_03.jpg", date: today }
+        ]
     },
     {
         id: 26,
@@ -588,8 +590,8 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/26_Pepe_01.jpg"
-                   ]
+            { url: "./images/26_Pepe_01.jpg", date: today }
+        ]
     },
     {
         id: 27,
@@ -608,8 +610,8 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/27_Desconocido_San_Miguel_01.jpg"
-                   ]
+            { url: "./images/27_Desconocido_San_Miguel_01.jpg", date: today }
+        ]
     },
     {
         id: 28,
@@ -633,7 +635,7 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            ""
+            { url: "", date: "" }
                    ]
     },
     {
@@ -655,7 +657,8 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/29_Juan_Tomás_Pérez_Segarra_01.jpg"
+
+            { url: "./images/29_Juan_Tomás_Pérez_Segarra_01.jpg", date: today }
                    ]
     },
     {
@@ -679,7 +682,7 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/30_Agustín_01.jpg"
+            { url: "./images/30_Agustín_01.jpg", date: today }
                    ]
     },
     {
@@ -712,7 +715,7 @@ const locations = [
         markerImage: "./images/Históricas_puntatore.png",
         markerSize: 40,
         images: [
-            "./images/03_Discos_Medicinales_01_2019.jpg"
+            { url: "./images/31_Discos_Medicinales_01.jpg", date: today }
                    ]
     }
 ];
@@ -804,14 +807,6 @@ function initMap() {
     handleMapResize(100);
     handleMapResize(500);
 
-    // Aggiungi i controlli di navigazione
-    map.addControl(new mapboxgl.NavigationControl(), 'top-right');
-    
-    // Aggiungi l'attribuzione obbligatoria in basso a destra
-    map.addControl(new mapboxgl.AttributionControl({
-        compact: false
-    }), 'bottom-right');
-    
     // Inizializza il clustering dei marker
     initializeClustering();
     
@@ -1388,12 +1383,13 @@ function updateImagesTab() {
     const videos = [];
     const images = [];
 
-    currentLocation.images.forEach(url => {
-        const id = ytIdFromUrl(url);
-        if (id) {
-            videos.push(`https://www.youtube.com/embed/${id}`);
+    currentLocation.images.forEach(image => {
+        if (typeof image === 'string') {
+            // Handle string URLs directly
+            images.push({ url: image, date: 'N/A' });
         } else {
-            images.push(url);
+            // Handle objects with url and date
+            images.push(image);
         }
     });
 
@@ -1413,8 +1409,12 @@ function updateImagesTab() {
     });
 
     // Poi le immagini (aprono un modal interno al click)
-    images.forEach((img) => {
-        galleryHTML += `<div class="media-item image-item"><img src="${img}" alt="Immagine di ${currentLocation.title}"></div>`;
+    images.forEach((imgObj) => {
+        galleryHTML += `
+            <div class="media-item image-item">
+                <img src="${imgObj.url}" alt="Immagine di ${currentLocation.title}">
+                <div class="image-date">${imgObj.date}</div>
+            </div>`;
     });
 
     imagesContent.innerHTML = `
