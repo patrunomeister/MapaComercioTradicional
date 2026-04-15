@@ -415,6 +415,9 @@ const locations = [
         markerSize: 40,
         images: [
             { url: "./images/17_Joaquín_01.jpg", date: today }
+        ],
+        video: [
+            {url: "https://youtu.be/x_9PsidJ5Ug" }
         ]
     },
     {
@@ -551,6 +554,9 @@ const locations = [
             { url: "./images/22_Carmen_Peris_Gomez_02.jpg", date: today },
             { url: "./images/22_Carmen_Peris_Gomez_03.jpg", date: today },
             { url: "./images/22_Carmen_Peris_Gomez_04.jpg", date: today }
+        ],
+        video: [
+            {url: "https://youtu.be/0iyorHf_8r4" }
         ]
     },
     {
@@ -705,7 +711,11 @@ const locations = [
         markerSize: 40,
         images: [
             { url: "", date: "" }
-                   ]
+                   ],
+        video: [
+            {url: "https://youtu.be/8Z03hg0hSok" }
+        ]
+
     },
     {
         id: 29,
@@ -756,7 +766,10 @@ const locations = [
         markerSize: 40,
         images: [
             { url: "./images/30_Agustín_01.jpg", date: today }
-                   ]
+                   ],
+        video: [
+            {url: "https://youtu.be/pwJ0-6DafZo" }
+        ]
     },
     {
         id: 31,
@@ -1662,7 +1675,34 @@ function updateDescriptionTab() {
             <span>${currentLocation.details.status}</span>
         </div>
     `;
-    
+
+    // Aggiunge la copertina del video se presente
+    if (currentLocation.video && currentLocation.video.length > 0) {
+        const ytIdFromUrl = (url) => {
+            if (!url) return null;
+            const m = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/i);
+            return m ? m[1] : null;
+        };
+        const videoEntries = currentLocation.video.filter(v => v && v.url);
+        if (videoEntries.length > 0) {
+            detailHTML += '<div class="detail-field"><strong>VIDEO</strong></div>';
+            videoEntries.forEach(v => {
+                const ytId = ytIdFromUrl(v.url);
+                if (ytId) {
+                    const thumb = `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`;
+                    detailHTML += `
+                        <div class="video-thumbnail-wrapper">
+                            <a href="${v.url}" target="_blank" rel="noopener noreferrer" aria-label="Ver video en YouTube">
+                                <img src="${thumb}" alt="Copertina video" class="video-thumbnail">
+                                <span class="video-play-icon">▶</span>
+                            </a>
+                        </div>
+                    `;
+                }
+            });
+        }
+    }
+
     detailBody.innerHTML = detailHTML;
 }
 
