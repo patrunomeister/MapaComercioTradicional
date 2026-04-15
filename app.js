@@ -6,14 +6,17 @@ const locations = [
     {
         id: 1,
         title: "Verduras y naranjas Bou",
-        type: "2016, 2019 y 2020",
-        description: "-",
+        type: "",
+        description: "El productor es Manuel y <em>a la porta</em> vende Nieves.\
+        [Entrevista, 2026]",
 
         coordinates: [-0.04135, 39.98506],
         details: {
             address: "Calle San Blas, 16",
+            road: "Fadrell",
             category: "Venta a la porta",
-            status: "",
+            status: "Activo",
+            observation: "2016, 2019, 2020 y 2026",
             contact: "",
             notes: "" },
         icon: "",
@@ -30,27 +33,23 @@ const locations = [
     {
         id: 2,
         title: "Fernando",
-        type: "2019",
-        description: "Fernando gestiona su punto de “venta a la porta” \
-        en el casco histórico de Castellón. Frutas y verduras proceden de \
-        la huerta familiar situada en la partida Brunella, \
-        una parcela heredada y cultivada por generaciones. \
-        La producción se realiza a escala familiar, con la colaboración \
-        de su hermano, siguiendo prácticas agrícolas tradicionales. \
-        El corrillo que a menudo se forma en frente de “la porta” \
-        se configura como un espacio relacional que refuerza los vínculos \
-        sociales del barrio. Este caso constituye un ejemplo significativo\
-         de la continuidad entre el espacio rural y el urbano, donde \
-         la venta directa actúa no solo como actividad económica, \
-         sino también como dispositivo social que refuerza los vínculos \
-         entre productor, territorio y comunidad local. <br>\
-         [Entrevista realizada en 2025]\
+        type: "",
+        description: "Fernando gestiona su punto de <em>venta a la porta</em> \
+        en el casco histórico de Castellón. Frutas y verduras proceden de la \
+        huerta familiar situada en la partida Brunella, una parcela heredada \
+        y cultivada por generaciones. La producción se realiza a escala \
+        familiar, con la colaboración de su hermano, siguiendo prácticas \
+        agrícolas tradicionales. Es habitual que se forme un corrillo frente \
+        a su <em>porta</em>. \
+        <em>[Entrevista, 2025]</em> \
         ",
         coordinates: [-0.03724, 39.98685],
         details: {
             address: "Calle de Mealla, 13",
+            road: "Brunella",
             category: "Venta a la porta",
-            status: "",
+            status: "Activo",
+            observation: "2019",
             contact: "",
             notes: ""        },
         icon: "",
@@ -64,13 +63,15 @@ const locations = [
     {
         id: 3,
         title: "María Teresa",
-        type: "2019",
-        description: "-",
+        type: "",
+        description: "No se dispone de información adicional.",
         coordinates: [-0.03634, 39.99229],
         details: {
             address: "Calle San Roque, 70",
+            road: "s/d",
             category: "Venta a la porta",
-            status: "",
+            status: "Inactivo",
+            observation: "2019",
             contact: "",
             notes: ""
         },
@@ -84,13 +85,15 @@ const locations = [
     {
         id: 4,
         title: "Francisca",
-        type: " 2018",
-        description: "-",
+        type: "",
+        description: "No se dispone de información adicional.",
         coordinates: [-0.04051, 39.98874],
         details: {
             address: "Calle de Villaroig, 60",
+            road: "s/d",
             category: "Venta a la porta",
-            status: "",
+            status: "Inactivo",
+            observation: "2019",
             contact: "",
             notes: ""
         },
@@ -103,14 +106,20 @@ const locations = [
     },
     {
         id: 5,
-        title: "María",
-        type: " 2019",
-        description: "-",
+        title: "María y Antonia",
+        type: "",
+        description: "María y Antonia, hermanas, cultivan principalmente \
+        cítricos y todo tipo de verduras de temporada. Afirman que vender \
+        a la <em>porta</em> es una buena salida para su producción porque \
+        la gente quiere productos naturales, de temporada y recogidos \
+        al día. <em>[Entrevista, 2026]</em>",
         coordinates: [-0.03691, 39.99364],
         details: {
             address: "Calle San Roque, 157",
+            road: "La Magdalena",
             category: "Venta a la porta",
-            status: "",
+            status: "Activo",
+            observation: "2019 y 2026",
             contact: "",
             notes: ""
         },
@@ -123,14 +132,16 @@ const locations = [
     },
     {
         id: 6,
-        title: "Desconocido",
-        type: " 2019",
-        description: "-",
+        title: "Sin identificar",
+        type: "",
+        description: "No se dispone de información adicional.",
         coordinates: [-0.04417, 39.97881],
         details: {
             address: "Avenida de Valencia, 15",
+            road: "s/d",
             category: "Venta a la porta",
-            status: "",
+            status: "Inactivo",
+            observation: "2019",
             contact: "",
             notes: ""
         },
@@ -144,18 +155,20 @@ const locations = [
     {
         id: 7,
         title: "José Juan Sidro Tirado",
-        type: " 2019,  2021",
+        type: "",
         description: "En la partida de Taxida, José Juan cultiva clementinas \
-        de la variedad Arrufatina y naranjas Navelate, en Coscollosa solo \
-        clementinas de la variedad Clemenules. Es socio de la Cooperativa \
-        San Isidro de Castellón, pero comenta que \"defiende\" sus cítricos \
-        vendiendo a comerciantes y a la porta. [Entrevista realizada en 2021] \
-",
+        de la variedad Arrufatina y naranjas Navelate. En Coscollosa cultiva \
+        solo clementinas de la variedad Clemenules. Es socio de la Cooperativa \
+        San Isidro de Castellón, por afección, pero considera que defiende \
+        mejor el valor de sus cítricos vendiendo directamente a comerciantes \
+        y <em>a la porta</em><em>[Entrevista, 2021]</em>",
         coordinates: [-0.03476, 39.99037],
         details: {
             address: "Calle Alcalde Tárrega, 24 c",
+            road: "Taxida y Coscollosa",
             category: "Venta a la porta",
-            status: "",
+            status: "Activo",
+            observation: "2019 y 2021",
             contact: "",
             notes: ""
         },
@@ -166,18 +179,24 @@ const locations = [
             { url: "./images/07_José_Juan_01.jpg", date: today },
             { url: "./images/07_José_Juan_02.jpg", date: today },
             { url: "./images/07_José_Juan_03.jpg", date: today }
+            
+        ],
+        video: [
+            {url: "https://youtu.be/c4ovEOUzjR0" }
         ]
     },
     {
         id: 8,
-        title: "Desconocido",
-        type: "2019",
-        description: "",
+        title: "Sin identificar",
+        type: "",
+        description: "No se dispone de información adicional.",
         coordinates: [-0.03664, 39.98933],
         details: {
             address: "Calle San Felix 20",
+            road: "s/d",
             category: "Venta a la porta",
-            status: "",
+            status: "Inactivo",
+            observation: "2019",
             contact: "",
             notes: ""
         },
@@ -190,14 +209,16 @@ const locations = [
     },
     {
         id: 9,
-        title: "Desconocido",
-        type: "2019",
-        description: "",
+        title: "Sin identificar",
+        type: "",
+        description: "No se dispone de información adicional.",
         coordinates: [-0.034108, 39.986668],
         details: {
             address: "Calle del Gobernador Bermúdez de Castro, 85",
+            road: "s/d",
             category: "Venta a la porta",
-            status: "",
+            status: "Activo",
+            observation: "2019",
             contact: "",
             notes: ""
         },
@@ -210,14 +231,16 @@ const locations = [
     },
     {
         id: 10,
-        title: "Desconocido",
-        type: "2019",
-        description: "",
+        title: "Sin identificar",
+        type: "",
+        description: "No se dispone de información adicional.",
         coordinates: [-0.04126, 39.98489],
         details: {
             address: "Calle San Blas, 10",
+            road: "s/d",
             category: "Venta a la porta",
-            status: "",
+            status: "Inactivo",
+            observation: "2019",
             contact: "",
             notes: ""
         },
@@ -230,14 +253,16 @@ const locations = [
     },
     {
         id: 11,
-        title: "Desconocido",
-        type: "2020",
-        description: "",
+        title: "Sin identificar",
+        type: "",
+        description: "No se dispone de información adicional.",
         coordinates: [-0.039105, 39.983114],
         details: {
             address: "Calle Ximenez, 5",
+            road: "s/d",
             category: "Venta a la porta",
-            status: "",
+            status: "Inactivo",
+            observation: "2020",
             contact: "",
             notes: ""
         },
@@ -250,14 +275,16 @@ const locations = [
     },
     {
         id: 12,
-        title: "Desconocido",
-        type: "2019",
-        description: "",
+        title: "Sin identificar",
+        type: "",
+        description: "No se dispone de información adicional.",
         coordinates: [-0.04206611076548801, 39.9963241829765],
         details: {
             address: "Calle del Angel, 9",
+            road: "s/d",
             category: "Venta a la porta",
-            status: "",
+            status: "Inactivo",
+            observation: "2019",
             contact: "",
             notes: ""
         },
@@ -270,14 +297,16 @@ const locations = [
     },
     {
         id: 13,
-        title: "Desconocido",
-        type: "2017",
-        description: "",
+        title: "Sin identificar",
+        type: "",
+        description: "No se dispone de información adicional.",
         coordinates: [-0.04087, 39.99123],
         details: {
             address: "Calle de Jovellanos, 17",
+            road: "s/d",
             category: "Venta a la porta",
-            status: "",
+            status: "Inactivo",
+            observation: "2017",
             contact: "",
             notes: ""
         },
@@ -290,14 +319,16 @@ const locations = [
     },
     {
         id: 14,
-        title: "Desconocido",
-        type: "2021",
-        description: "",
+        title: "Sin identificar",
+        type: "",
+        description: "No se dispone de información adicional.",
         coordinates: [-0.03623, 39.99182],
         details: {
             address: "Calle San Roque, 42",
+            road: "s/d",
             category: "Venta a la porta",
-            status: "",
+            status: "Inactivo",
+            observation: "2021",
             contact: "",
             notes: ""
         },
@@ -312,13 +343,15 @@ const locations = [
     {
         id: 15,
         title: "Amparo",
-        type: "2016 y 2023",
-        description: "",
+        type: "",
+        description: "No se dispone de información adicional.",
         coordinates: [-0.03977, 39.98999],
         details: {
             address: "Calle de Ximen Pérez de Arenós, 6",
+            road: "s/d",    
             category: "Venta a la porta",
-            status: "",
+            status: "Inactivo",
+            observation: "2016 y 2023",
             contact: "",
             notes: ""
         },
@@ -333,14 +366,16 @@ const locations = [
     },
     {
         id: 16,
-        title: "Desconocido",
-        type: "2017",
-        description: "",
+        title: "Sin identificar",
+        type: "",
+        description: "No se dispone de información adicional.",
         coordinates: [-0.0375, 39.99312],
         details: {
             address: "Calle Almansa, 44",
+            road: "s/d",
             category: "Venta a la porta",
-            status: "",
+            status: "Inactivo",
+            observation: "2017",
             contact: "",
             notes: ""
         },
@@ -354,20 +389,24 @@ const locations = [
     {
         id: 17,
         title: "Joaquín Breva Mut",
-        type: "2024",
-        description: "Joaquín, come su padre e su abuelo, si dedica all'agricoltura. \
-        Produce e vende cítricos, nísperos e uve. Con il fin di evitare la vendita a prezzo basso \
-        a intermediari, ha optato per difendere la sua produzione di cítrici (40 hanegadas) \
-        mediante la modalità di “venta a la porta”. Reside in una zona centrale di Castellón e, \
-        data la presenza di numerosi venditori che praticano questa stessa modalità, \
-        ha deciso di affittare un garage in calle Dr. Ferrán nel 2023 e, successivamente, \
-        trasferire la sua attività in un piccolo negozio commerciale sulla vicina avenida de Lidón. \
-        [Entrevista realizzata in 2024]",
+        type: "",
+        description: "Joaquín, como su padre y su abuelo, se dedica a la \
+        agricultura. Produce y vende cítricos, nísperos y uvas. \
+        Con el fin de evitar la venta a bajo precio a intermediarios, \
+        optó por defender su producción de cítricos (40 hanegadas) mediante \
+        la modalidad de <em>venta a la porta</em>. Reside en una zona \
+        céntrica de Castellón y, dada la presencia de numerosos vendedores \
+        que practicaban esta misma modalidad en el barrio, decidió alquilar \
+        un garaje en la calle Dr. Ferrán en 2023 y, posteriormente, \
+        trasladar su actividad a un pequeño establecimiento comercial \
+        en la cercana Avenida de Lidón.",
         coordinates: [-0.033053, 39.989488],
         details: {
             address: "Avenida Virgen de Lidón, 20",
+            road: "Canet, Taxida y Almalafa",       
             category: "Venta a la porta",
-            status: "",
+            status: "Activo",
+            observation: "2024",
             contact: "",
             notes: ""
         },
@@ -380,17 +419,19 @@ const locations = [
     },
     {
         id: 18,
-        title: "María Dolores (Marilo)",
-        type: "2025",
-        description: "Mariló vende i cítrici che cultiva suo marido Paco nella finca di famiglia, \
-        di 20 anegadas (1,6 hectáreas) nella partida de La Magdalena. Ma non vuole seguir e ha \
-        messo in vendita la finca. \
-        [Entrevista realizzata in 2025]",
+        title: "María Dolores (Mariló)",
+        type: "",
+        description: "Mariló vende los cítricos que cultiva su marido Paco \
+        en la finca familiar, de 20 hanegadas (1,6 hectáreas) en la \
+        partida de La Magdalena. Ha decidido no continuar con esta \
+        actividad y ha puesto en venta la finca.<em>[Entrevista, 2025]</em>",
         coordinates: [-0.03979, 39.98905],
         details: {
             address: "Calle de les Germanies, 1",
+            road: "La Magdalena",
             category: "Venta a la porta",
-            status: "",
+            status: "Activo",
+            observation: "2025",
             contact: "",
             notes: ""
         },
@@ -405,13 +446,15 @@ const locations = [
     {
         id: 19,
         title: "Lucía",
-        type: "2024",
-        description: "",
+        type: "",
+        description: "No se dispone de información adicional.",
         coordinates: [ -0.04245, 39.99075],
         details: {
             address: " Calle de Albocácer, 2",
+            road: "s/d",
             category: "Venta a la porta",
-            status: "",
+            status: "Inactivo",
+            observation: "2024",
             contact: "",
             notes: ""
         },
@@ -426,21 +469,25 @@ const locations = [
     {
         id: 20,
         title: "Catalina",
-        type: "2025",
-        description: "En el bajo de su casa, Catalina vende los productos que su marido Vicente \
-        cultiva en su huerta del Grao de Castellón. En invierno, sobre todo cítricos y en verano \
-        verduras y otro tipo de fruta. Cuando ellos se van de vacaciones, como al momento de la \
-        foto, es su hija Lledó, acompañada de sus tres hijas, la que sigue vendiendo lo que recogen \
-        de la huerta para que no haya desperdicio. Lledó comenta que esta es una actividad que hacían \
-        también sus abuelos: la abuela Consuelo era la que llevaba la venta a la misma puerta. Comenta \
-        también que no se pueden quejar de como va la actividad, los vecinos del barrio son muy felices \
-        por abastecerse de productos que vengan directamente de la cercana huerta.\
-        [Entrevista realizada en 2025]",
+        type: "",
+        description: "En el bajo de su casa, Catalina vende los productos \
+        que su marido Vicente cultiva en su huerta del Grao de Castellón. \
+        En invierno, principalmente cítricos, y en verano verduras y otros \
+        tipos de fruta. Cuando la familia se ausenta, su hija Lledó, \
+        acompañada de sus tres hijas, continúa la venta para evitar \
+        que la producción se desperdicie. Lledó recuerda que esta \
+        actividad la practicaban también sus abuelos: la abuela \
+        Consuelo era quien llevaba la venta en la misma <em>porta</em>.\
+         Los vecinos del barrio, señala, valoran especialmente poder \
+         abastecerse de productos que proceden directamente de la huerta \
+         cercana.<em>[Entrevista, 2025]</em>",
         coordinates: [-0.04055, 39.98197],
         details: {
             address: "Calle Trinidad, 108",
+            road: "s/d",
             category: "Venta a la porta",
-            status: "",
+            status: "Activo",
+            observation: "2025",
             contact: "",
             notes: ""
         },
@@ -454,14 +501,16 @@ const locations = [
     },
     {
         id: 21,
-        title: "Desconocido",
-        type: "2018",
-        description: "",
+        title: "Sin identificar",
+        type: "",
+        description: "No se dispone de información adicional.",
         coordinates: [-0.04055, 39.98197],
         details: {
             address: "Calle Ximén Pérez d'Arenós, 16",
+            road: "s/d",
             category: "Venta a la porta",
-            status: "",
+            status: "Inactivo",
+            observation: "2018",
             contact: "",
             notes: ""
         },
@@ -474,19 +523,23 @@ const locations = [
     },
     {
         id: 22,
-        title: "Carmen Peris Gomez",
-        type: "2025",
-        description: "Carmen nació en 1930, hija de labradores de muchas generaciones; desde muy \
-        joven ha trabajado en la agricultura. Es propietaria de una finca de cítricos situada en \
-        la partida de Canet, actualmente cultivada por uno de sus hijos. Carmen comercializa de \
-        forma directa, “a la porta”, entre los vecinos de su barrio, el excedente de la producción, \
-        una vez distribuida la cosecha entre los miembros de su numerosa familia.\
-        [Entrevista realizada en 2025]",
+        title: "Carmen Peris Gómez",
+        type: "",
+        description: "Carmen nació en 1930, hija de labradores de varias \
+        generaciones; desde muy joven ha trabajado en la agricultura. \
+        Es propietaria de una finca de cítricos situada en la partida \
+        de Canet, actualmente cultivada por uno de sus hijos. \
+        Carmen comercializa de forma directa, <em>a la porta</em>, \
+        entre los vecinos de su barrio, el excedente de la producción, \
+        una vez distribuida la cosecha entre los miembros de su numerosa \
+        familia.<em>[Entrevista, 2025]</em>",
         coordinates: [-0.035665, 39.991318],
         details: {
             address: "Calle Ebanista Hervás, 7",
+            road: "Calle Ebanista Hervás, 7",
             category: "Venta a la porta",
-            status: "",
+            status: "Activo",
+            observation: "2025",
             contact: "",
             notes: ""
         },
@@ -503,18 +556,21 @@ const locations = [
     {
         id: 23,
         title: "Rafa",
-        type: "2025",
-        description: "Rafa empezó su actividad en la década de 1990 cultivando cítricos y pequeñas \
-        cantidades de hortalizas en sus fincas situadas en las partidas de Borrassa, \
-        Bovalar (en la subpartida Penyeta Roja) y La Plana. Con la ayuda de sus hijos, \
-        en la actualidad cultiva y vende su producción “a la porta” en el almacén del Camí de la Plana, \
-        los domingos en el Mercado de la Plaza María Agustina, y realiza reparto directo a clientes.\
-        [Entrevista realizada en 2025]",
+        type: "",
+        description: "Rafa empezó su actividad en la década de 1990 cultivando \
+        cítricos y pequeñas cantidades de hortalizas en sus fincas situadas \
+        en las partidas de Borrassa, Bovalar (en la subpartida Penyeta Roja) \
+        y La Plana. Con la ayuda de sus hijos, en la actualidad cultiva y \
+        vende su producción <em>a la porta</em> en el almacén del Camí de \
+        la Plana, los domingos en el Mercado de la Plaza María Agustina, \
+        y realiza reparto directo a clientes.<em>[Entrevista, 2025]</em>",
         coordinates: [-0.035759, 39.994463],
         details: {
             address: "Camí de La Plana, 8",
+            road: "Borrassa, Bovalar y La Plana",
             category: "Venta a la porta",
-            status: "",
+            status: "Activo",
+            observation: "2025",
             contact: "",
             notes: ""
         },
@@ -529,17 +585,21 @@ const locations = [
     {
         id: 24,
         title: "Juan",
-        type: "2025",
-        description: "Juan cultiva cítricos en 12 hanegadas repartidas en 4 fincas que eran propiedad \
-        de su mujer Rosa María, quien falleció en 2021. Antes era ella quien vendía “a la porta”, \
-        mientras él se dedicaba solo al cultivo, actualmente este se dedica a las dos actividades. \
-        Cultiva diferentes variedades de clementinas así que su producción cubre la temporada de noviembre a marzo.\
-        [Entrevista realizada en 2025]",
+        type: "",
+        description: "Juan cultiva cítricos en 12 hanegadas repartidas en \
+        4 fincas que eran propiedad de su esposa Rosa María, \
+        fallecida en 2021. Antes era ella quien vendía <em>a la porta</em>,\
+         mientras él se dedicaba exclusivamente al cultivo; actualmente \
+         asume las dos actividades. Cultiva diferentes variedades de \
+         clementinas, por lo que su producción cubre la temporada de \
+         noviembre a marzo.<em>[Entrevista, 2025]</em>",
         coordinates: [-0.035444, 39.989388],
         details: {
             address: "Calle Sanahuja, 29",
+            road: "Canet, Gumbau, La Plana y Senillar",
             category: "Venta a la porta",
-            status: "",
+            status: "Activo",
+            observation: "2025",
             contact: "",
             notes: ""
         },
@@ -553,14 +613,16 @@ const locations = [
     {
         id: 25,
         title: "Rafa",
-        type: "2025",
+        type: "",
         description: "Cultiva cítricos en la zona de secano.\
-        [Entrevista realizada en 2025]",
+        [Entrevista, 2025]",
         coordinates: [-0.037570, 39.992060],
         details: {
             address: " Calle de Almansa, 11",
+            road: "s/d",
             category: "Venta a la porta",
-            status: "",
+            status: "Activo",
+            observation: "2025",
             contact: "",
             notes: ""
         },
@@ -576,13 +638,14 @@ const locations = [
     {
         id: 26,
         title: "Pepe",
-        type: "2025",
-        description: "",
+        type: "",
+        description: "No se dispone de información adicional.",
         coordinates: [-0.036631, 39.989914],
         details: {
             address: "Calle San Felix, 50",
             category: "Venta a la porta",
-            status: "",
+            status: "Inactivo",
+            observation: "2025",
             contact: "",
             notes: ""
         },
@@ -595,14 +658,16 @@ const locations = [
     },
     {
         id: 27,
-        title: "Desconocido",
-        type: "2020",
-        description: "",
+        title: "Sin identificar",
+        type: "",
+        description: "No se dispone de información adicional.",
         coordinates: [-0.036995, 39.991825],
         details: {
             address: "Calle San Miguel, 29",
+            road: "s/d",
             category: "Venta a la porta",
-            status: "",
+            status: "Inactivo",
+            observation: "2020",
             contact: "",
             notes: ""
         },
@@ -616,18 +681,22 @@ const locations = [
     {
         id: 28,
         title: "Juan Antonio Camañ",
-        type: "2023",
-        description: "Juan Antonio Camañ continúa la actividad que durante 27 años desarrolló su madre Tónica, \
-        vendiendo los productos cultivados por la familia en la partida de Brunella. \
-        Sus padres y abuelos, tanto por parte materna como paterna, eran agricultores. \
-        Por la mañana vende “a la porta” y por la tarde trabaja el campo, manteniendo viva una tradición \
-        agrícola de proximidad profundamente conectada a la vida del barrio.\
-        [Entrevista realizada en 2023]",
+        type: "",
+        description: "Juan Antonio Camañ continúa la actividad que durante \
+        27 años desarrolló su madre Tónica, vendiendo los productos \
+        cultivados por la familia en la partida de Brunella. \
+        Sus padres y abuelos, tanto por parte materna como paterna, \
+        eran agricultores. Por la mañana vende <em>a la porta</em> \
+        y por la tarde trabaja el campo, manteniendo viva una tradición \
+        agrícola de proximidad profundamente conectada a la vida \
+        del barrio.<em>[Entrevista, 2023]</em>",
         coordinates: [-0.03302506464302525, 39.99131677385039],
         details: {
             address: "Calle Sanz de Bremond, 22 a",
+            road: "Brunella",
             category: "Venta a la porta",
-            status: "",
+            status: "Activo",
+            observation: "2020, 2023 y 2026",
             contact: "",
             notes: ""
         },
@@ -642,14 +711,16 @@ const locations = [
         id: 29,
         title: "Juan Tomás Pérez Segarra",
         type: "2025",
-        description: "Juan Tomás abre solo por las tardes, ya que por las mañanas \
-        cuida su parcela, donde cultiva únicamente clementinas. \
-        [Entrevista realizada en 2025]",
+        description: "Juan Tomás abre su punto de <em>venta la porta</em> \
+        solo por las tardes, ya que por las mañanas cuida su parcela, \
+        donde cultiva únicamente clementinas. <em>[Entrevista, 2025]</em>",
         coordinates: [-0.03302506464302525, 39.99131677385039],
         details: {
             address: "Calle Marqués de la Ensenada, 25",
+            road: "La Plana",
             category: "Venta a la porta",
-            status: "",
+            status: "Activo",
+            observation: "2025",
             contact: "",
             notes: ""
         },
@@ -664,17 +735,19 @@ const locations = [
     {
         id: 30,
         title: "Agustín Agost Pascual",
-        type: "2018",
-        description: "Agustín ha cultivado cítricos toda su vida en sus huertas de Ramell, \
-        donde tenía 7 hanegadas: la mitad de clementinas y la otra mitad de Valencia Late.\
-        Antes del boom de las clementinas, cultivaba naranjas de las variedades Blanca y Fina. \
-        También poseía fincas en Almalafa y Coscollosa. \
-        [Entrevista realizada en 2018]",
+        type: "",
+        description: "Agustín ha cultivado cítricos toda su vida en sus \
+        huertas de Ramell, donde tenía 7 hanegadas: la mitad de clementinas \
+        y la otra mitad de Valencia Late. Antes del boom de las clementinas, \
+        cultivaba naranjas de las variedades Blanca y Fina. También \
+        poseía fincas en Almalafa y Coscollosa.<em>[Entrevista, 2018]</em>",
         coordinates: [-0.03496597922044713, 39.99055046211849],
         details: {
             address: "Calle Alcalde Tarrega, 41",
+            road: "Coscollosa, Ramell y Almalafa",
             category: "Venta a la porta",
-            status: "",
+            status: "Inactivo",
+            observation: "2018",
             contact: "",
             notes: ""
         },
@@ -687,6 +760,230 @@ const locations = [
     },
     {
         id: 31,
+        title: "Pepe",
+        type: "",
+        description: "De diciembre a marzo/abril, Pepe vende <em>a la porta</em> \
+        los productos de su huerta, de 8,5 hanegadas, situada en la partida Almalafa. \
+        Continúa con la tradición familiar y no quiere abandonar el trabajo que \
+        construyeron sus padres, aunque hoy resulte más costoso y exigente. Opta por \
+        la venta directa también por una cuestión de rentabilidad: mientras que el \
+        comerciante en el campo paga alrededor de 0,30 € por kilo de clementinas, \
+        la venta <em>a la porta</em> le permite alcanzar los 1,50 € por kilo. \
+        En la misma calle, hasta hace pocos años, otros dos productores practicaban \
+        la venta directa, pero ya se han jubilado para cuidar a sus esposas.\
+        <em>[Entrevista, 2026]</em>",
+        coordinates: [-0.033121, 39.985908],
+        details: {
+            address: "Calle de Peñíscola, 2",
+            road: "Almalafa",
+            category: "Venta a la porta",
+            status: "Activo",
+            observation: "2026",
+            contact: "",
+            notes: ""
+        },
+        icon: "",
+        markerImage: "./images/VALP_puntatore.png",
+        markerSize: 40,
+        images: [
+            { url: "./images/30_Agustín_01.jpg", date: today }
+                   ]
+    },
+    {
+        id: 32,
+        title: "Paquita",
+        type: "",
+        description: "Paquita vende los cítricos que su marido Tomás cultiva en su \
+        finca de la partida de La Magdalena. Son árboles viejos, de baja producción, \
+        cuya sustitución no resulta rentable. Su abuelo solía decir: <em>«La tierra \
+        nos salvará»</em>, pero Paquita ya no lo cree.<em>[Entrevista, 2026]</em>",
+        coordinates: [-0.039754, 39.989528],
+        details: {
+            address: "Calle Alonso de Arrufat, 18 C",
+            road: "La Magdalena",
+            category: "Venta a la porta",
+            status: "Activo",
+            observation: "2018 y 2026",
+            contact: "",
+            notes: ""
+        },
+        icon: "",
+        markerImage: "./images/VALP_puntatore.png",
+        markerSize: 40,
+        images: [
+            { url: "./images/30_Agustín_01.jpg", date: today }
+                   ]
+    },
+    {
+        id: 33,
+        title: "Sasá",
+        type: "",
+        description: "Sasá vende los productos que cultiva su marido Julio.\
+        <em>[Entrevista, 2026]</em>",
+        coordinates: [-0.043832, 39.977596],
+        details: {
+            address: "Calle Amalio Gimeno, 16 C",
+            road: "s/d",
+            category: "Venta a la porta",
+            status: "Activo",
+            observation: "2026",
+            contact: "",
+            notes: ""
+        },
+        icon: "",
+        markerImage: "./images/VALP_puntatore.png",
+        markerSize: 40,
+        images: [
+            { url: "./images/30_Agustín_01.jpg", date: today }
+                   ]
+    },
+    {
+        id: 34,
+        title: "Mari Carmen Agost",
+        type: "",
+        description: "Las propiedades donde se cultivan los cítricos proceden de herencias \
+        de los abuelos de Mari Carmen y de los de su marido Antonio, técnico agrícola, \
+        quien se dedica al cultivo de las 35 hanegadas. La composición social \
+        del barrio ha experimentado cambios significativos en los últimos años, \
+        lo que ha repercutido también en la clientela. Actualmente, Mari Carmen vende \
+        principalmente a personas mayores y a población inmigrante, especialmente procedente \
+        del norte de África y de Sudamérica.<em>[Entrevista, 2026]</em>",
+        coordinates: [-0.041125, 39.991763],
+        details: {
+            address: "Ronda Vinatea, 22 C",
+            road: "Almalafa, Ramell, Bovalar y Cap de Canet",
+            category: "Venta a la porta",
+            status: "Activo",
+            observation: "2026",
+            contact: "",
+            notes: ""
+        },
+        icon: "",
+        markerImage: "./images/VALP_puntatore.png",
+        markerSize: 40,
+        images: [
+            { url: "./images/30_Agustín_01.jpg", date: today }
+                   ]
+    },
+    {
+        id: 35,
+        title: "Sin identificar",
+        type: "",
+        description: "No se dispone de información adicional.",
+        coordinates: [-0.041830, 39.988086],
+        details: {
+            address: "Ronda Magdalena, 12 B",
+            road: "s/d",
+            category: "Venta a la porta",
+            status: "Activo",
+            observation: "2026",
+            contact: "",
+            notes: ""
+        },
+        icon: "",
+        markerImage: "./images/VALP_puntatore.png",
+        markerSize: 40,
+        images: [
+            { url: "./images/30_Agustín_01.jpg", date: today }
+                   ]
+    },
+    {
+        id: 36,
+        title: "Calzado Bartomeu",
+        type: "",
+        description: "En la entrada de la tienda de calzados Bartolomeu, mientras \
+        estuvo abierta en esta dirección, se exponía una cesta con naranjas y su \
+        precio, que se vendían en el interior del establecimiento.",
+        coordinates: [-0.040146, 39.986014],
+        details: {
+            address: "Avenida Rey Don Jaime, 44",
+            road: "s/d",
+            category: "Venta a la porta",
+            status: "Inactivo",
+            observation: "2022, 2026",
+            contact: "",
+            notes: ""
+        },
+        icon: "",
+        markerImage: "./images/VALP_puntatore.png",
+        markerSize: 40,
+        images: [
+            { url: "./images/30_Agustín_01.jpg", date: today }
+                   ]
+    },
+    {
+        id: 37,
+        title: "Delfina Palacios",
+        type: "",
+        description: "Delfina Palacios originaria de Jartos, pedanía de Yeste (Albacete), \
+        a los 15 años se trasladó a Castellón para trabajar en el servicio doméstico, \
+        como era habitual entre las jóvenes de la época. Aquí conoció a su marido, \
+        agricultor con huerta propia dedicada al cultivo de cítricos. Tras enfermar su marido, \
+        Delfina, con más de 80 años, sigue acudiendo a la huerta con él —\
+         conduciendo sin carnet —, corta los cítricos, los coloca en las cajas y espera a\
+          que sus hijos las recojan y las traigan al punto de venta. Cada mañana, Delfina \
+          atiende la <em>porta</em> para vender su cosecha.<em>[Entrevista, 2026]</em>",
+        coordinates: [-0.036661, 39.992501],
+        details: {
+            address: "Calle San Roque, 95 ",
+            road: "La Mota",
+            category: "Venta a la porta",
+            status: "Activo",
+            observation: "2026",
+            contact: "",
+            notes: ""
+        },
+        icon: "",
+        markerImage: "./images/VALP_puntatore.png",
+        markerSize: 40,
+        images: [
+            { url: "./images/30_Agustín_01.jpg", date: today }
+                   ]
+    },
+    {
+        id: 38,
+        title: "Tica Salvador Gual",
+        type: "",
+        description: "Tica vende exclusivamente naranjas Navelate, variedad tardía, \
+        de enero a marzo. Su marido José se ocupa principalmente del cultivo — poda, \
+        recolección, abono — y ella le ayuda. El padre de José compró 12 hanegadas de tierra \
+        campa en Ramell, zona de secano, que a su muerte se repartieron entre los hermanos; a \
+        ellos les correspondieron 6 hanegadas. Antiguamente regaban a manta y actualmente por \
+        goteo con agua del Sindicato de Riegos.\
+        El recorrido hasta la <em>venta a la porta</em> pasó por varias etapas: \
+        primero vendieron a una cooperativa de l'Alqueria del Niño Perdido, \
+        que abandonaron hace diez años por considerar que infravaloraba su producción. \
+        Después participaron en el Mercado de Subasta, donde los corredores evalúan a ojo \
+        la producción expuesta en grandes contenedores, sistema que también les resultó \
+        insatisfactorio. Estuvieron tres años en el <em>Mercat de la Taronja</em> de la \
+        Plaza Borrull, hasta que finalmente optaron por la <em>venta a la porta</em>, \
+        donde se encuentran satisfechos.\
+        Aunque en el barrio la competencia es notable, cuentan con una clientela fiel que aprecia \
+        la calidad de las naranjas cultivadas en secano y recogidas a diario. La recolección diaria \
+        se mantiene también por razones prácticas: el local de venta no dispone de espacio suficiente \
+        para almacenar y la cosecha y transporte a diario son más sencillos de realizar.\
+        Además de los vecinos del barrio, que acuden a pie con carros o bolsas, reciben clientes \
+        de fuera — Almazora, Fadrell — y personas que, de viaje por España o al extranjero, \
+        se llevan las naranjas para familiares y amigos.<em>[Entrevista, 2026]</em>",
+        coordinates: [-0.035185064373992485, 39.99310137032916],
+        details: {
+            address: "Calle Alcalde Tárrega, 56",
+            road: "Ramell",
+            category: "Venta a la porta",
+            status: "Activo",
+            observation: "2026",
+            contact: "",
+            notes: ""
+        },
+        icon: "",
+        markerImage: "./images/VALP_puntatore.png",
+        markerSize: 40,
+        images: [
+            { url: "./images/30_Agustín_01.jpg", date: today }
+                   ]
+    },
+    {
+        id: 39,
         title: "Discos Medicinales, Música",
         type: "1983–2019",
         description: "<b>Fundador:</b> José Luis Roig<br> \
@@ -719,6 +1016,17 @@ const locations = [
                    ]
     }
 ];
+
+locations.forEach((location) => {
+    if (location.details && location.details.category === 'Venta a la porta') {
+        if (!Object.prototype.hasOwnProperty.call(location.details, 'road')) {
+            location.details.road = '';
+        }
+        if (!Object.prototype.hasOwnProperty.call(location.details, 'observation')) {
+            location.details.observation = '';
+        }
+    }
+});
 
 // Configurazione della mappa
 const mapConfig = {
@@ -1325,11 +1633,19 @@ function updateDescriptionTab() {
     let detailHTML = `
         <p>${currentLocation.description}</p>
         <div class="detail-field">
-            <strong>📍 DIRECCIÓN</strong>
+            <strong>DIRECCIÓN</strong>
             <span>${currentLocation.details.address}</span>
         </div>
         <div class="detail-field">
-            <strong>🏷️ CATEGORÍA</strong>
+            <strong>PARTIDA RURAL</strong>
+            <span>${currentLocation.details.road || ''}</span>
+        </div>
+        <div class="detail-field">
+            <strong>OBSERVACIÓN DE CAMPO</strong>
+            <span>${currentLocation.details.observation || ''}</span>
+        </div>
+        <div class="detail-field">
+            <strong>CATEGORÍA</strong>
             <span>${currentLocation.details.category}</span>
         </div>
         
@@ -1342,8 +1658,8 @@ function updateDescriptionTab() {
             <span><a href="mailto:${currentLocation.details.contact}">${currentLocation.details.contact}</a></span>
         </div> -->
         <div class="detail-field">
-            <strong>📝 ENLACES</strong>
-            <span>${currentLocation.details.notes}</span>
+            <strong>ESTADO</strong>
+            <span>${currentLocation.details.status}</span>
         </div>
     `;
     
