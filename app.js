@@ -765,7 +765,11 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            { url: "./images/30_Agustín_01.jpg", date: today }
+            { url: "./images/30_Agustín_01.jpg", date: today },
+            { url: "./images/30_Agustín_02_2018.jpg", date: today },
+            { url: "./images/30_Agustín_03_2018.jpg", date: today },
+            { url: "./images/30_Agustín_04_2018.JPG", date: today }
+            
                    ],
         video: [
             {url: "https://youtu.be/pwJ0-6DafZo" }
@@ -799,7 +803,7 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            { url: "./images/30_Agustín_01.jpg", date: today }
+            { url: "./images/31_Pepe_01_2026.jpg", date: today }
                    ]
     },
     {
@@ -824,7 +828,8 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            { url: "./images/30_Agustín_01.jpg", date: today }
+            { url: "./images/32_Paquita_01_2026.jpg", date: today },
+            { url: "./images/32_Paquita_02_2018.JPG", date: today }
                    ]
     },
     {
@@ -847,7 +852,8 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            { url: "./images/30_Agustín_01.jpg", date: today }
+            { url: "./images/33_Sasa_1_2026.jpg", date: today },
+            { url: "./images/33_Sasa_2_2026.jpg", date: today }
                    ]
     },
     {
@@ -875,7 +881,10 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            { url: "./images/30_Agustín_01.jpg", date: today }
+            { url: "./images/34_Mari_Carmen_01_2026.jpg", date: today },
+            { url: "./images/34_Mari_Carmen_02_2026.jpg", date: today },
+            { url: "./images/34_Mari_Carmen_03_2026.jpg", date: today }
+
                    ]
     },
     {
@@ -897,7 +906,7 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            { url: "./images/30_Agustín_01.jpg", date: today }
+            { url: "./images/35_Ronda_Magdalena_01_2026.JPG", date: today }
                    ]
     },
     {
@@ -921,7 +930,7 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            { url: "./images/30_Agustín_01.jpg", date: today }
+            { url: "./images/36_Bartomeu_01_2022.jpg", date: today }
                    ]
     },
     {
@@ -950,7 +959,9 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            { url: "./images/30_Agustín_01.jpg", date: today }
+            { url: "./images/37_Delfina_01_2026.JPG", date: today },
+            { url: "./images/37_Delfina_02_2026.jpg", date: today },
+            { url: "./images/37_Delfina_03_2026.jpg", date: today }
                    ]
     },
     {
@@ -992,7 +1003,7 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            { url: "./images/30_Agustín_01.jpg", date: today }
+            { url: "./images/38_Tica_01_2026.jpg", date: today }
                    ]
     },
     {
