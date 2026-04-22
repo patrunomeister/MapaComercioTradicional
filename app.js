@@ -1059,7 +1059,7 @@ const mapConfig = {
     zoom: 13,
     minZoom: 10,
     maxZoom: 18,
-    style: 'mapbox://styles/geocomerciocs/cmn92nvds000v01qs5p5o2ws2'
+    style: 'mapbox://styles/geocomerciocs/cmn92oyra000r01r774wa81r1'
     
 };
 
