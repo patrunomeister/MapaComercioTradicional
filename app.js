@@ -930,7 +930,7 @@ const locations = [
         markerImage: "./images/VALP_puntatore.png",
         markerSize: 40,
         images: [
-            { url: "./images/36_Bartomeu_01_2022.jpg", date: today }
+            { url: "./images/36_Bartolomeu_01_2022.jpg", date: today }
                    ]
     },
     {
@@ -1054,12 +1054,12 @@ locations.forEach((location) => {
 
 // Configurazione della mappa
 const mapConfig = {
-    accessToken: 'pk.eyJ1IjoidmluY3BhdHJ1bm8iLCJhIjoiY21nejJpemY2MDJpMzk0cjNyOWY1cXduYSJ9.d_43r4VO_yjEJc4vHgcmgw',
+    accessToken: 'pk.eyJ1IjoiZ2VvY29tZXJjaW9jcyIsImEiOiJjbW44cWZ1OXkwMGlyMnFxeXJkYXZpMDZsIn0.B7PfV-LvgohQa11LgU9c1g',
     center: [-0.051301, 39.984624], // Centro di Castellón de la Plana (adattato per i dati forniti)
     zoom: 13,
     minZoom: 10,
     maxZoom: 18,
-    style: 'mapbox://styles/vincpatruno/cjz2d38ip0f251ck40ow9t2wz'
+    style: 'mapbox://styles/geocomerciocs/cmn92nvds000v01qs5p5o2ws2'
     
 };
 
