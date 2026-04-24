@@ -1054,7 +1054,7 @@ locations.forEach((location) => {
 
 // Configurazione della mappa
 const mapConfig = {
-    accessToken: 'pk.eyJ1IjoiZ2VvY29tZXJjaW9jcyIsImEiOiJjbW44cWZ1OXkwMGlyMnFxeXJkYXZpMDZsIn0.B7PfV-LvgohQa11LgU9c1g',
+    accessToken: 'pk.eyJ1IjoiZ2VvY29tZXJjaW9jcyIsImEiOiJjbW9kOXo4cWkwMHV6MnBzNWtveXhnbmgxIn0.gg1Q7ikSr1NfnQPS6zfV0g',
     center: [-0.051301, 39.984624], // Centro di Castellón de la Plana (adattato per i dati forniti)
     zoom: 13,
     minZoom: 10,
