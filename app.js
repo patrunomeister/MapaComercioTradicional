@@ -1033,7 +1033,7 @@ const locations = [
             notes: ""
         },
         icon: "",
-        markerImage: "./images/Históricas_puntatore.png",
+        markerImage: "./images/Storici_rosa.png",
         markerSize: 60,
         images: [
             { url: "./images/31_Discos_Medicinales_01.jpg", date: today }
