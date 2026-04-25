@@ -1008,29 +1008,83 @@ const locations = [
     },
     {
         id: 39,
-        title: "Discos Medicinales, Música",
-        type: "1983–2019",
-        description: "<b>Fundador:</b> José Luis Roig<br> \
-        <b>Tipo de comercio:</b> Tienda especializada en música (vinilos, CDs y material de coleccionismo)<br><br> \
-        <b>Descripción:</b><br> \
-        Fundada en 1983, Discos Medicinales se convirtió en un referente cultural y un verdadero santuario para \
-        los melómanos de Castellón. Su catálogo, amplio y cuidadosamente seleccionado, situó la tienda entre \
-        las más apreciadas por coleccionistas y aficionados a la música  en la ciudad.<br><br>\
-        <b>Importancia histórica:</b> <br> \
-        Durante más de tres décadas, la tienda fue un punto de encuentro para la comunidad musical local, \
-        contribuyendo de forma decisiva a la memoria cultural y social de Castellón.<br>\
-        Bajo la dirección de José Luis Roig, el establecimiento defendió un modelo de comercio basado en \
-        la calidad, el conocimiento especializado y la atención personalizada, resistiendo a la competencia de \
-        las grandes cadenas y al auge del consumo digital.<br><br>\
-        <b>Cierre:</b><br> \
-        La tienda cerró en el verano de 2019",
-        coordinates: [-0.038213, 39.985078],
+        title: "Wamba",
+        type: "Estudio de fotografía (CNAE 7420)",
+        description: "Atelier emblemático de Castellón durante más de ocho décadas. \
+        Fundado por Vicente Traver Sanz y continuado por su hijo, Vicente Traver \
+        Ardiez, Wamba documentó la vida pública y cotidiana de la ciudad: \
+        festividades, inauguraciones, manifestaciones, escenas urbanas y detalles \
+        domésticos, capturando la evolución social y arquitectónica de Castellón. \
+        En su presentación en redes sociales se describió como: “Local comercial \
+        dedicado al Arte Fotográfico, fundado en Castellón en 1936 bajo el nombre \
+        Wamba”. \
+        El archivo fotográfico Wamba constituye un testimonio visual único del \
+        Castellón del siglo XX y principios del XXI. Sus imágenes reflejan \
+        la vida pública y la intimidad de la ciudad, convirtiéndose en una \
+        fuente esencial para preservar su memoria cultural y social. \
+        La continuidad de la saga familiar permitió mantener vivo este \
+        legado durante varias generaciones. El estudio permaneció activo \
+        hasta el fallecimiento de Vicente Traver Ardiez, en 2021.\
+        <em>[Entrevista: 2019, Fuentes hemerográficas: 2018 y 2021]</em>",
+        coordinates: [-0.03743, 39.98449],
         details: {
-            address: "C/Pascual Tirado, 1",
+            address: "Calle San Vicente, 40 (anteriormente Calle Mayor, 11)",
             category: "Tiendas históricas",
-            status: "",
+            activity: "1936–2021",
+            foundation: "Vicente Traver Sanz",
+            manager: "Vicente Traver Ardiez", 
+            status: "Cerrado",
+            store: "Cerrado",
+            link: "https://www.elperiodicomediterraneo.com/castello/2021/01/11/castello-llora-wamba-fotografo-deja-40624182.html \
+                    https://www.elperiodicomediterraneo.com/castello/2018/06/02/3a-generacion-wamba-jorge-deja-41318843.html",
             contact: "",
             notes: ""
+
+        },
+        icon: "",
+        markerImage: "./images/Storici_rosa.png",
+        markerSize: 60,
+        images: [
+            { url: "./images/31_Discos_Medicinales_01.jpg", date: today }
+                   ]
+    },   
+    {
+        id: 40,
+        title: "Discos Medicinales",
+        type: "Tienda de música (CNAE 4763)",
+        description: "Discos Medicinales fue fundada en 1983 por José Luis Roig y Miguel Ángel\
+         Villanueva. El nombre respondía a la convicción de sus fundadores de que la \
+         música posee una dimensión terapéutica. José Luis Roig definió su actividad \
+         como <em>venta de discos en sus diferentes formatos: vinilos, CDs, casetes y \
+         DVDs</em>. Durante más de tres décadas, el comercio se consolidó como punto de \
+         referencia para la comunidad musical local, con un catálogo amplio y cuidadosamente \
+         seleccionado, siendo en sus últimos años el único establecimiento especializado \
+         exclusivamente en música en la ciudad.\
+         El cierre, en el verano de 2019, no fue inesperado. Roig había reconocido en varias \
+         ocasiones que era una  <em>muerte anunciada</em>: <em>A partir de los 2000 se \
+         rompió el afán por comprar música. La gente ya no quería pagar por ella. En cinco \
+         o seis años desaparecieron más de mil locales.</em> La piratería, la irrupción de \
+         las grandes superficies y las plataformas digitales, junto a la falta de ayudas y \
+         el elevado IVA cultural, hicieron insostenible el negocio.\
+        Tras el cierre, el stock permaneció en un almacén hasta 2022, cuando fue adquirido \
+        por Discos Oldies de Valencia, tienda especializada activa desde 1978, que lo \
+        incorporó a su catálogo.\
+        [Entrevista, 2019; Fuentes hemerográficas, 2019, 2022]",
+        coordinates: [-0.03821, 39.98507],
+        details: {
+            address: "Calle Pascual Tirado, 1",
+            category: "Tiendas históricas",
+            activity: "1983–2019",
+            foundation: "José Luis Roig y Miguel Ángel Villanueva",
+            manager: "José Luis Roig y Miguel Ángel Villanueva", 
+            status: "Cerrado",
+            store: "Abierto, Talismán, bolsos y complementos",
+            link: "https://castellonplaza.com/castellonplaza/discos-medicinales-cierra-su-emblematica-tienda-para-trasladarse-a-la-plaza-clave-en-septiembre\
+                    https://www.elperiodicomediterraneo.com/castello/2021/01/10/castello-llora-fotografo-antonomasia-wamba-40625903.html\
+                    https://castellonplaza.com/castellonplaza/discos-medicinales",
+            contact: "",
+            notes: ""
+
         },
         icon: "",
         markerImage: "./images/Storici_rosa.png",
@@ -1653,39 +1707,56 @@ function updateDescriptionTab() {
     // Aggiornamento descrizione per: (hidden)
     detailTitle.textContent = currentLocation.title;
     detailType.textContent = currentLocation.type;
+
+    const details = currentLocation.details || {};
+    const isHistorical = details.category === 'Tiendas históricas';
+    const renderField = (label, value) => `
+        <div class="detail-field">
+            <strong>${label}</strong>
+            <span>${value || ''}</span>
+        </div>
+    `;
+
+    const renderLinksField = (label, rawLinks) => {
+        if (!rawLinks) return renderField(label, '');
+        const rawMatches = String(rawLinks).match(/https?:\/\/[^\s"'<>]+/gi) || [];
+        const links = rawMatches
+            .map(link => link.replace(/[),.;]+$/g, ''))
+            .filter((link, index, arr) => arr.indexOf(link) === index);
+
+        if (links.length === 0) return renderField(label, '');
+
+        const linksHTML = links
+            .map((link, index) => `<a href="${link}" target="_blank" rel="noopener noreferrer">Enlace ${index + 1}</a>`)
+            .join('<br>');
+
+        return `
+            <div class="detail-field">
+                <strong>${label}</strong>
+                <span>${linksHTML}</span>
+            </div>
+        `;
+    };
     
     let detailHTML = `
         <p>${currentLocation.description}</p>
-        <div class="detail-field">
-            <strong>DIRECCIÓN</strong>
-            <span>${currentLocation.details.address}</span>
-        </div>
-        <div class="detail-field">
-            <strong>PARTIDA RURAL</strong>
-            <span>${currentLocation.details.road || ''}</span>
-        </div>
-        <div class="detail-field">
-            <strong>OBSERVACIÓN DE CAMPO</strong>
-            <span>${currentLocation.details.observation || ''}</span>
-        </div>
-        <div class="detail-field">
-            <strong>CATEGORÍA</strong>
-            <span>${currentLocation.details.category}</span>
-        </div>
-        
-        <!-- <div class="detail-field">
-            <strong>📊 STATO</strong>
-            <span>${currentLocation.details.status}</span>
-        </div>
-        <div class="detail-field">
-            <strong>📧 CONTATTO</strong>
-            <span><a href="mailto:${currentLocation.details.contact}">${currentLocation.details.contact}</a></span>
-        </div> -->
-        <div class="detail-field">
-            <strong>ESTADO</strong>
-            <span>${currentLocation.details.status}</span>
-        </div>
     `;
+
+    detailHTML += renderField('DIRECCIÓN', details.address);
+    detailHTML += renderField('CATEGORÍA', details.category);
+
+    if (isHistorical) {
+        detailHTML += renderField('Años de actividad', details.activity);
+        detailHTML += renderField('Fundadores', details.foundation);
+        detailHTML += renderField('Gestión', details.manager);
+        detailHTML += renderField('Estado de la actividad', details.status);
+        detailHTML += renderField('Estado del establecimiento', details.store);
+        detailHTML += renderLinksField('Enlaces', details.link);
+    } else {
+        detailHTML += renderField('PARTIDA RURAL', details.road || '');
+        detailHTML += renderField('OBSERVACIÓN DE CAMPO', details.observation || '');
+        detailHTML += renderField('ESTADO', details.status);
+    }
 
     // Aggiunge la copertina del video se presente
     if (currentLocation.video && currentLocation.video.length > 0) {
