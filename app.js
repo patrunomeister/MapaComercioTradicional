@@ -518,7 +518,7 @@ const locations = [
         title: "Sin identificar",
         type: "",
         description: "No se dispone de información adicional.",
-        coordinates: [-0.04055, 39.98197],
+        coordinates: [-0.039691, 39.990429],
         details: {
             address: "Calle Ximén Pérez d'Arenós, 16",
             road: "s/d",
